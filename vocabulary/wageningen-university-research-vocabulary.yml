@@ -1,0 +1,60 @@
+vocabulary:
+  name: AgroDataCube Vocabulary
+  description: >-
+    Controlled vocabulary of the core terms used by the Wageningen University &
+    Research AgroDataCube API, an open data collection for agri-food
+    applications over the Netherlands. Terms are derived from the public
+    AgroDataCube Postman collections (v1 and v2).
+  version: "2.1"
+  terms:
+    - term: field
+      definition: A registered agricultural crop parcel, returned as a GeoJSON feature with crop and geometry attributes.
+      tags: [agriculture, geospatial, core]
+    - term: fieldid
+      definition: Unique identifier of a crop field within AgroDataCube.
+      tags: [identifier, field]
+    - term: crop_code
+      definition: National crop classification code associated with a field.
+      tags: [field, codes]
+    - term: crop_name
+      definition: Human-readable (Dutch) crop name associated with a crop code.
+      tags: [field, codes]
+    - term: ahn
+      definition: Altitude data from the Actueel Hoogtebestand Nederland (AHN) elevation model, available as values or as a GeoTIFF image.
+      tags: [raster, elevation]
+    - term: ndvi
+      definition: Normalized Difference Vegetation Index derived from satellite imagery, available as values or as a GeoTIFF image.
+      tags: [raster, vegetation]
+    - term: meteostation
+      definition: A weather observation station for which meteorological data can be retrieved.
+      tags: [weather]
+    - term: meteodata
+      definition: Time-series meteorological observations (such as windspeed and temperature) for a station between two dates.
+      tags: [weather, timeseries]
+    - term: soilparams
+      definition: Soil parameter values associated with a field or queried geometry.
+      tags: [soil]
+    - term: soiltypes
+      definition: Soil type classifications for a field or queried geometry.
+      tags: [soil]
+    - term: geometry
+      definition: A spatial query argument (WKT) or returned GeoJSON geometry describing the location of a resource.
+      tags: [geospatial]
+    - term: epsg
+      definition: EPSG coordinate reference system code for input geometry (e.g. 28992 for the Dutch RD grid).
+      tags: [geospatial, parameter]
+    - term: output_epsg
+      definition: EPSG coordinate reference system code requested for returned geometries (e.g. 4326).
+      tags: [geospatial, parameter]
+    - term: page_size
+      definition: Maximum number of features returned per page.
+      tags: [pagination, parameter]
+    - term: page_offset
+      definition: Zero-based offset of the first feature returned, used for paging.
+      tags: [pagination, parameter]
+    - term: token
+      definition: Access token, supplied via the 'token' HTTP header, required to authenticate AgroDataCube requests.
+      tags: [auth]
+    - term: datapackage
+      definition: Derived key performance indicator (KPI) products such as greenness and crop rotation computed over one or more fields.
+      tags: [derived, kpi]

@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "crop_code": "265",
+        "crop_name": "Grasland, blijvend"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "crop_code": "256",
+        "crop_name": "Bieten, suiker-"
+      }
+    }
+  ]
+}

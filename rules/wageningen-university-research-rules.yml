@@ -1,0 +1,45 @@
+formats: [oas3]
+rules:
+  agrodatacube-info-license:
+    description: AgroDataCube specs must declare the CC BY-NC-SA license.
+    severity: warn
+    given: $.info
+    then:
+      field: license
+      function: truthy
+  agrodatacube-token-security:
+    description: A token apiKey header security scheme must be defined.
+    severity: error
+    given: $.components.securitySchemes
+    then:
+      field: tokenHeader
+      function: truthy
+  agrodatacube-server-https:
+    description: Servers must use the agrodatacube.wur.nl host over HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://agrodatacube\\.wur\\.nl/"
+  agrodatacube-operation-has-200:
+    description: Every operation must document a 200 response.
+    severity: warn
+    given: $.paths[*][*].responses
+    then:
+      field: "200"
+      function: truthy
+  agrodatacube-pagination-params:
+    description: List operations should expose page_size and page_offset query parameters.
+    severity: info
+    given: $.paths[*][get]
+    then:
+      field: parameters
+      function: truthy
+  agrodatacube-geojson-response:
+    description: JSON responses should reference the GeoJSON FeatureCollection schema.
+    severity: info
+    given: $.paths[*][get].responses.200.content.application/json.schema
+    then:
+      field: "$ref"
+      function: truthy

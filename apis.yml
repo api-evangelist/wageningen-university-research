@@ -48,6 +48,18 @@ apis:
         url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
       - type: SignUp
         url: https://agrodatacube.wur.nl/api/register.jsp
+      - type: OpenAPI
+        url: openapi/wageningen-university-research-agrodatacube-v2.yaml
+      - type: JSONSchema
+        url: json-schema/wageningen-university-research-field-schema.json
+      - type: x-json-structure
+        url: json-structure/wageningen-university-research-field-structure.json
+      - type: x-rules
+        url: rules/wageningen-university-research-rules.yml
+      - type: x-vocabulary
+        url: vocabulary/wageningen-university-research-vocabulary.yml
+      - type: x-json-ld
+        url: json-ld/wageningen-university-research-context.jsonld
   - aid: wageningen-university-research:agrodatacube-v1
     name: AgroDataCube API v1 (legacy)
     description: >-
@@ -60,6 +72,8 @@ apis:
         url: https://documenter.getpostman.com/view/3862510/RVnSHh76
       - type: SignUp
         url: https://agrodatacube.wur.nl/api/register.jsp
+      - type: OpenAPI
+        url: openapi/wageningen-university-research-agrodatacube-v1.yaml
   - aid: wageningen-university-research:wfbr-food-api
     name: WFBR Food API
     description: >-

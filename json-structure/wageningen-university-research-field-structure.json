@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wageningen-university-research/main/json-structure/wageningen-university-research-field-structure.json",
+  "name": "AgroDataCubeField",
+  "description": "JSON Structure for a single AgroDataCube crop field, derived from the public AgroDataCube Postman collection example responses (GeoJSON Feature properties).",
+  "type": "object",
+  "properties": {
+    "fieldid": { "type": "int64", "description": "Unique identifier of the crop field." },
+    "year": { "type": "int32", "description": "Calendar year the field registration applies to." },
+    "crop_code": { "type": "string", "description": "National crop code for the field." },
+    "crop_name": { "type": "string", "description": "Human-readable crop name (Dutch)." },
+    "area": { "type": "double", "description": "Field area in square meters." },
+    "perimeter": { "type": "double", "description": "Field perimeter in meters." },
+    "geometry": {
+      "type": "object",
+      "description": "GeoJSON geometry of the field.",
+      "properties": {
+        "type": { "type": "string" },
+        "coordinates": { "type": "array", "items": { "type": "any" } }
+      }
+    }
+  },
+  "required": ["fieldid"]
+}

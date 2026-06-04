@@ -1,0 +1,42 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "wur": "https://agrodatacube.wur.nl/vocab#",
+    "geo": "https://purl.org/geojson/vocab#",
+    "institution": {
+      "@id": "https://schema.org/CollegeOrUniversity",
+      "@type": "@id"
+    },
+    "name": "https://schema.org/name",
+    "url": "https://schema.org/url",
+    "description": "https://schema.org/description",
+    "FeatureCollection": "geo:FeatureCollection",
+    "Feature": "geo:Feature",
+    "geometry": "geo:geometry",
+    "features": "geo:features",
+    "field": "wur:field",
+    "fieldid": "wur:fieldid",
+    "crop_code": "wur:cropCode",
+    "crop_name": "wur:cropName",
+    "area": {
+      "@id": "https://schema.org/area",
+      "@type": "https://schema.org/QuantitativeValue"
+    },
+    "perimeter": "wur:perimeter",
+    "ndvi": "wur:ndvi",
+    "ahn": "wur:ahn",
+    "soilparams": "wur:soilParams",
+    "soiltypes": "wur:soilTypes",
+    "meteostation": "wur:meteoStation",
+    "meteodata": "wur:meteoData"
+  },
+  "@type": "CollegeOrUniversity",
+  "name": "Wageningen University & Research",
+  "url": "https://www.wur.nl/",
+  "description": "Dutch university and research institution specializing in healthy food and the living environment. Publisher of the AgroDataCube open agri-food data API.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Wageningen Environmental Research (WENR)",
+    "url": "https://agrodatacube.wur.nl/"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wageningen-university-research/main/json-schema/wageningen-university-research-field-schema.json",
+  "title": "AgroDataCube Field FeatureCollection",
+  "description": "JSON Schema for the GeoJSON FeatureCollection returned by the AgroDataCube /fields resource. Derived from the public AgroDataCube Postman collection example responses.",
+  "type": "object",
+  "required": ["type", "features"],
+  "properties": {
+    "type": { "type": "string", "const": "FeatureCollection" },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "geometry", "properties"],
+        "properties": {
+          "type": { "type": "string", "const": "Feature" },
+          "geometry": {
+            "type": "object",
+            "required": ["type", "coordinates"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["Point", "LineString", "Polygon", "MultiPoint", "MultiLineString", "MultiPolygon"]
+              },
+              "coordinates": { "type": "array" }
+            }
+          },
+          "properties": {
+            "type": "object",
+            "description": "Crop field attributes.",
+            "properties": {
+              "fieldid": { "type": "integer", "examples": [4006258] },
+              "year": { "type": "integer", "examples": [2017] },
+              "crop_code": { "type": "string", "examples": ["256"] },
+              "crop_name": { "type": "string", "examples": ["Bieten, suiker-"] },
+              "area": { "type": "number", "examples": [93344.82117765881] },
+              "perimeter": { "type": "number", "examples": [1328.8669438915447] }
+            }
+          }
+        }
+      }
+    }
+  }
+}
