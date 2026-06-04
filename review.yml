@@ -1,0 +1,54 @@
+---
+name: Wageningen University & Research
+description: Wageningen University & Research public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/wageningen-university-research/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 3
+    summary: >-
+      Verified a real, domain-focused agri-food API footprint. AgroDataCube
+      (agrodatacube.wur.nl) is a live token-based REST API with public Postman
+      docs for v2 and legacy v1, plus a working registration form. Wageningen
+      Food & Biobased Research operates a live Azure API Management developer
+      portal publishing a Food API. The Pure-powered Research Portal
+      (research.wur.nl) and the institutional eDepot resolve, but their
+      web-service/OAI-PMH endpoints returned HTTP 500/400 and are not openly
+      usable, so no Pure/OAI API was cataloged. No central institution-wide
+      API platform exists; counts reflect only confirmed live properties with
+      no fabricated endpoints.
+    endpoints:
+      - url: https://agrodatacube.wur.nl/
+        status: 200
+        note: AgroDataCube API home, live; token required via register.jsp.
+      - url: https://agrodatacube.wur.nl/api/register.jsp
+        status: 200
+        note: AgroDataCube token registration form, live.
+      - url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+        status: 200
+        note: AgroDataCube API v2.1 Postman documentation.
+      - url: https://documenter.getpostman.com/view/3862510/RVnSHh76
+        status: 200
+        note: AgroDataCube API v1 (legacy) Postman documentation.
+      - url: https://euw-apim-fism-001-p.developer.azure-api.net/apis
+        status: 200
+        note: WFBR Azure APIM developer portal, Food API listing, live.
+      - url: https://euw-apim-fism-001-p.developer.azure-api.net/terms-of-use
+        status: 200
+        note: WFBR API portal terms of use, live.
+      - url: https://research.wur.nl/
+        status: 200
+        note: Pure-powered Research Portal home, live (UI only).
+      - url: https://research.wur.nl/ws/oai?verb=Identify
+        status: 500
+        note: Pure OAI-PMH endpoint not publicly enabled; returns server error.
+      - url: https://edepot.wur.nl/
+        status: 200
+        note: WUR eDepot repository, live; no documented public API surfaced.
+      - url: https://www.wur.nl/
+        status: 200
+        note: Official institution website, live.
+      - url: https://github.com/WUR-AI
+        status: 200
+        note: WUR Artificial Intelligence Group GitHub org (one of several WUR groups).

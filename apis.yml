@@ -1,0 +1,96 @@
+---
+aid: wageningen-university-research
+name: Wageningen University & Research
+description: >-
+  Wageningen University & Research (WUR) is a Dutch university and research
+  institution based in Wageningen, Netherlands, specializing in the domain of
+  healthy food and living environment, and ranked #100 in the QS World
+  University Rankings 2025. Its public developer footprint centers on the
+  agri-food research domain rather than a single central API platform: the
+  AgroDataCube provides a token-based REST API over a large open data
+  collection for agri-food applications, and Wageningen Food & Biobased
+  Research (WFBR) operates an Azure API Management developer portal publishing
+  a Food API for scientific data about food products. WUR also runs a
+  Pure-powered Research Portal (research.wur.nl) and a public Data Portal,
+  though documented public web-service/OAI endpoints there were not openly
+  reachable at review time.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/wageningen-university-research/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - Agriculture
+  - Agri-Food
+  - Open Data
+  - Netherlands
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: wageningen-university-research:agrodatacube-v2
+    name: AgroDataCube API v2
+    description: >-
+      Token-based REST API providing a large collection of open and derived
+      data for agri-food applications, including crop fields, soil, weather,
+      NDVI vegetation indices, altitude and raster (GeoTIFF) data via spatial
+      queries. Free for non-commercial use under a Creative Commons
+      BY-NC-SA license.
+    humanURL: https://agrodatacube.wur.nl/
+    baseURL: https://agrodatacube.wur.nl/api/v2/rest/
+    tags: [ Agriculture, Agri-Food, Open Data, Geospatial, Weather ]
+    properties:
+      - type: Documentation
+        url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+      - type: SignUp
+        url: https://agrodatacube.wur.nl/api/register.jsp
+  - aid: wageningen-university-research:agrodatacube-v1
+    name: AgroDataCube API v1 (legacy)
+    description: >-
+      Legacy version of the AgroDataCube REST API for agri-food open data.
+      Superseded by v2 but still available; uses the same access token.
+    humanURL: https://agrodatacube.wur.nl/
+    tags: [ Agriculture, Agri-Food, Open Data, Geospatial ]
+    properties:
+      - type: Documentation
+        url: https://documenter.getpostman.com/view/3862510/RVnSHh76
+      - type: SignUp
+        url: https://agrodatacube.wur.nl/api/register.jsp
+  - aid: wageningen-university-research:wfbr-food-api
+    name: WFBR Food API
+    description: >-
+      API for scientific data about food products, published by Wageningen
+      Food & Biobased Research (WFBR) through an Azure API Management developer
+      portal. Provides software services and algorithms returning information
+      on food items from documented sources in the Netherlands.
+    humanURL: https://euw-apim-fism-001-p.developer.azure-api.net/apis
+    tags: [ Food, Agri-Food, Scientific Data ]
+    properties:
+      - type: Documentation
+        url: https://euw-apim-fism-001-p.developer.azure-api.net/apis
+      - type: SignUp
+        url: https://euw-apim-fism-001-p.developer.azure-api.net/signup
+common:
+  - type: Website
+    url: https://www.wur.nl/
+  - type: GitHub
+    url: https://github.com/WUR-AI
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/wageningen-university/
+  - type: DeveloperPortal
+    url: https://euw-apim-fism-001-p.developer.azure-api.net/
+  - type: Plans
+    url: plans/wageningen-university-research-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/wageningen-university-research-rate-limits.yml
+  - type: FinOps
+    url: finops/wageningen-university-research-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
