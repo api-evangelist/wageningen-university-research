@@ -46,7 +46,7 @@ apis:
     properties:
       - type: Documentation
         url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
-      - type: SignUp
+      - type: Signup
         url: https://agrodatacube.wur.nl/api/register.jsp
       - type: OpenAPI
         url: openapi/wageningen-university-research-agrodatacube-v2.yaml
@@ -70,7 +70,7 @@ apis:
     properties:
       - type: Documentation
         url: https://documenter.getpostman.com/view/3862510/RVnSHh76
-      - type: SignUp
+      - type: Signup
         url: https://agrodatacube.wur.nl/api/register.jsp
       - type: OpenAPI
         url: openapi/wageningen-university-research-agrodatacube-v1.yaml
@@ -86,7 +86,7 @@ apis:
     properties:
       - type: Documentation
         url: https://euw-apim-fism-001-p.developer.azure-api.net/apis
-      - type: SignUp
+      - type: Signup
         url: https://euw-apim-fism-001-p.developer.azure-api.net/signup
 common:
   - type: Website
