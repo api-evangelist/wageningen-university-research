@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/wageningen-university-research-agrodatacube-v1.yaml, openapi/wageningen-university-research-agrodatacube-v2.yaml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: tokenHeader
+  type: apiKey
+  in: header
+  parameter: token
+  description: Access token obtained via https://agrodatacube.wur.nl/api/register.jsp
+  sources:
+  - openapi/wageningen-university-research-agrodatacube-v1.yaml
+  - openapi/wageningen-university-research-agrodatacube-v2.yaml

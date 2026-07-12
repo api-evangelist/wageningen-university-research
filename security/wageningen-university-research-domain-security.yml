@@ -1,0 +1,40 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.wur.nl
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec 21 12:19:46 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: agrodatacube.wur.nl
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec  9 15:42:18 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: euw-apim-fism-001-p.developer.azure-api.net
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec  4 07:51:50 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+domains:
+- domain: wur.nl
+  dnssec: false
+  caa:
+  - 0 issue "godaddy.com"
+  - 0 iodef "mailto:servicedesk.it@wur.nl"
+  - 0 issue "harica.gr"
+  - 0 issue "sectigo.com"
+  - 0 issue "letsencrypt.org"
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: azure-api.net
+  dnssec: false
+  caa:
+  - 0 contactemail "caarecordaware@microsoft.com"
+  spf: false
+  dmarc: false

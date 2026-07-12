@@ -89,6 +89,12 @@ apis:
       - type: Signup
         url: https://euw-apim-fism-001-p.developer.azure-api.net/signup
 common:
+  - type: VulnerabilityDisclosure
+    url: security/wageningen-university-research-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/wageningen-university-research-domain-security.yml
+  - type: Authentication
+    url: authentication/wageningen-university-research-authentication.yml
   - type: Website
     url: https://www.wur.nl/
   - type: GitHub
