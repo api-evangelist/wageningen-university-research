@@ -1,0 +1,564 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/wageningen-university-research-agrodatacube-v1.yaml, openapi/wageningen-university-research-agrodatacube-v2.yaml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 55
+  by_action_class:
+    connected: 55
+  by_consequence:
+    read: 55
+  human_in_the_loop_required: 0
+operations:
+- path: /ahn
+  method: get
+  operationId: get_ahn
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codes/cropcodes
+  method: get
+  operationId: get_codes_cropcodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codes/cropcodes/{cropcode}
+  method: get
+  operationId: get_codes_cropcodes_cropcode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codes/soilcodes
+  method: get
+  operationId: get_codes_soilcodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codes/soilcodes/{soilcode}
+  method: get
+  operationId: get_codes_soilcodes_soilcode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields
+  method: get
+  operationId: get_fields
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}
+  method: get
+  operationId: get_fields_fieldid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/ahn
+  method: get
+  operationId: get_fields_fieldid_ahn
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/meteostations
+  method: get
+  operationId: get_fields_fieldid_meteostations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/ndvi
+  method: get
+  operationId: get_fields_fieldid_ndvi
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/soilparams
+  method: get
+  operationId: get_fields_fieldid_soilparams
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/soiltypes
+  method: get
+  operationId: get_fields_fieldid_soiltypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteodata
+  method: get
+  operationId: get_meteodata
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteodata/{stationid}/{date}
+  method: get
+  operationId: get_meteodata_stationid_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteostations
+  method: get
+  operationId: get_meteostations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteostations/{meteostation}
+  method: get
+  operationId: get_meteostations_meteostation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regions/municipalities
+  method: get
+  operationId: get_regions_municipalities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regions/postalcodes
+  method: get
+  operationId: get_regions_postalcodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regions/provences
+  method: get
+  operationId: get_regions_provences
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /soilparams/{soilparamid}
+  method: get
+  operationId: get_soilparams_soilparamid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /soiltypes
+  method: get
+  operationId: get_soiltypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /soiltypes/{entityid}
+  method: get
+  operationId: get_soiltypes_entityid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sources
+  method: get
+  operationId: get_sources
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sources/{resource_name}
+  method: get
+  operationId: get_sources_resource_name
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ahn
+  method: get
+  operationId: get_ahn
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ahn_image
+  method: get
+  operationId: get_ahn_image
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codes/category
+  method: get
+  operationId: get_codes_category
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codes/cropcodes
+  method: get
+  operationId: get_codes_cropcodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codes/cropcodes/{cropcode}
+  method: get
+  operationId: get_codes_cropcodes_cropcode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codes/soilcodes
+  method: get
+  operationId: get_codes_soilcodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codes/soilcodes/{soilcode}
+  method: get
+  operationId: get_codes_soilcodes_soilcode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /datapackage/kpi/croprotation
+  method: get
+  operationId: get_datapackage_kpi_croprotation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /datapackage/kpi/greenness
+  method: get
+  operationId: get_datapackage_kpi_greenness
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields
+  method: get
+  operationId: get_fields
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}
+  method: get
+  operationId: get_fields_fieldid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/ahn
+  method: get
+  operationId: get_fields_fieldid_ahn
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/ahn_image
+  method: get
+  operationId: get_fields_fieldid_ahn_image
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/bouwland_markers
+  method: get
+  operationId: get_fields_fieldid_bouwland_markers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/crophistory
+  method: get
+  operationId: get_fields_fieldid_crophistory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/croprotationindex
+  method: get
+  operationId: get_fields_fieldid_croprotationindex
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/grasland_markers
+  method: get
+  operationId: get_fields_fieldid_grasland_markers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/meteostations
+  method: get
+  operationId: get_fields_fieldid_meteostations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/ndvi
+  method: get
+  operationId: get_fields_fieldid_ndvi
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/ndvi_image
+  method: get
+  operationId: get_fields_fieldid_ndvi_image
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/soilparams
+  method: get
+  operationId: get_fields_fieldid_soilparams
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /fields/{fieldid}/soiltypes
+  method: get
+  operationId: get_fields_fieldid_soiltypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteodata
+  method: get
+  operationId: get_meteodata
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteodata/{stationid}/{date}
+  method: get
+  operationId: get_meteodata_stationid_date
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteostations
+  method: get
+  operationId: get_meteostations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /meteostations/{meteostation}
+  method: get
+  operationId: get_meteostations_meteostation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ndvi_image
+  method: get
+  operationId: get_ndvi_image
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regions/municipalities
+  method: get
+  operationId: get_regions_municipalities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /soilparams/{soilparamid}
+  method: get
+  operationId: get_soilparams_soilparamid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /soiltypes
+  method: get
+  operationId: get_soiltypes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /soiltypes/{entityid}
+  method: get
+  operationId: get_soiltypes_entityid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

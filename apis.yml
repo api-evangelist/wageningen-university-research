@@ -89,6 +89,8 @@ apis:
       - type: Signup
         url: https://euw-apim-fism-001-p.developer.azure-api.net/signup
 common:
+  - type: AgenticAccess
+    url: agentic-access/wageningen-university-research-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/wageningen-university-research-vulnerability-disclosure.yml
   - type: DomainSecurity
