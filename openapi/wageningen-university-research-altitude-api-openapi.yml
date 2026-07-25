@@ -1,0 +1,110 @@
+openapi: 3.0.3
+info:
+  title: AgroDataCube API v1 (legacy) Altitude API
+  version: '1.0'
+  description: 'Faithful OpenAPI 3.0 conversion of the public AgroDataCube Postman collection. AgroDataCube provides open and derived data for agri-food applications over the Netherlands, returning GeoJSON for vector resources and GeoTIFF for raster (_image) resources. Access requires a free token supplied via the ''token'' HTTP header. Source: Wageningen Environmental Research (WUR).'
+  license:
+    name: CC BY-NC-SA 4.0
+    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+  contact:
+    name: AgroDataCube
+    url: https://agrodatacube.wur.nl/
+servers:
+- url: https://agrodatacube.wur.nl/api/v1/rest
+security:
+- tokenHeader: []
+tags:
+- name: Altitude
+paths:
+  /ahn:
+    get:
+      summary: Altitude zonal statistics for supplied geometry.
+      description: Altitude zonal statistics for supplied geometry.
+      operationId: get_ahn
+      responses:
+        '200':
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureCollection'
+        '401':
+          description: Missing or invalid access token.
+        '404':
+          description: Resource not found.
+      security:
+      - tokenHeader: []
+      tags:
+      - Altitude
+      parameters:
+      - name: geometry
+        in: query
+        required: false
+        schema:
+          type: string
+        example: POLYGON((219478 481588.256000001,219478 497638.432,237339.072000001 497638.432,237339.072000001 481588.256000001,219478 481588.256000001))
+      - name: epsg
+        in: query
+        required: false
+        schema:
+          type: integer
+        example: '28992'
+components:
+  schemas:
+    FeatureCollection:
+      type: object
+      description: GeoJSON FeatureCollection returned by vector resources.
+      required:
+      - type
+      - features
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+    Feature:
+      type: object
+      description: GeoJSON Feature with a geometry and a free-form properties map whose keys depend on the queried resource.
+      required:
+      - type
+      - geometry
+      - properties
+      properties:
+        type:
+          type: string
+          enum:
+          - Feature
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        properties:
+          type: object
+          additionalProperties: true
+    Geometry:
+      type: object
+      description: GeoJSON geometry (Point, Polygon, MultiPolygon, etc.).
+      required:
+      - type
+      - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+          - Point
+          - LineString
+          - Polygon
+          - MultiPoint
+          - MultiLineString
+          - MultiPolygon
+        coordinates:
+          type: array
+          items: {}
+  securitySchemes:
+    tokenHeader:
+      type: apiKey
+      in: header
+      name: token
+      description: Access token obtained via https://agrodatacube.wur.nl/api/register.jsp

@@ -1,11 +1,8 @@
 openapi: 3.0.3
 info:
-  title: AgroDataCube API v1 (legacy)
+  title: AgroDataCube API v1 (legacy) Altitude Retrieve API
   version: '1.0'
-  description: 'Faithful OpenAPI 3.0 conversion of the public AgroDataCube Postman collection. AgroDataCube
-    provides open and derived data for agri-food applications over the Netherlands, returning GeoJSON
-    for vector resources and GeoTIFF for raster (_image) resources. Access requires a free token supplied
-    via the ''token'' HTTP header. Source: Wageningen Environmental Research (WUR).'
+  description: 'Faithful OpenAPI 3.0 conversion of the public AgroDataCube Postman collection. AgroDataCube provides open and derived data for agri-food applications over the Netherlands, returning GeoJSON for vector resources and GeoTIFF for raster (_image) resources. Access requires a free token supplied via the ''token'' HTTP header. Source: Wageningen Environmental Research (WUR).'
   license:
     name: CC BY-NC-SA 4.0
     url: https://creativecommons.org/licenses/by-nc-sa/4.0/
@@ -18,19 +15,15 @@ security:
 - tokenHeader: []
 tags:
 - name: Retrieve
-- name: Return
 paths:
   /ahn:
     get:
-      summary: Retrieve zonal statistics for altitude using the supplied geometry. If no epsg is provided
-        epsg = 28992 (RD) is assumed.
-      description: Retrieve zonal statistics for altitude using the supplied geometry. If no epsg is provided
-        epsg = 28992 (RD) is assumed. Currently only EPSGs 28992 (Dutch RD) and 4326 (WGS 84) are supported.
+      summary: Retrieve zonal statistics for altitude using the supplied geometry. If no epsg is provided epsg = 28992 (RD) is assumed.
+      description: Retrieve zonal statistics for altitude using the supplied geometry. If no epsg is provided epsg = 28992 (RD) is assumed. Currently only EPSGs 28992 (Dutch RD) and 4326 (WGS 84) are supported.
       operationId: get_ahn
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -62,8 +55,7 @@ paths:
       operationId: get_codes_cropcodes
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -96,8 +88,7 @@ paths:
       operationId: get_codes_cropcodes_cropcode
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -136,8 +127,7 @@ paths:
       operationId: get_codes_soilcodes
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -170,8 +160,7 @@ paths:
       operationId: get_codes_soilcodes_soilcode
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -205,16 +194,12 @@ paths:
         example: '0'
   /fields:
     get:
-      summary: Retrieve the geometry and soil information of the intersections of the supplied geometry
-        and the fields. If no epsg is p
-      description: Retrieve the geometry and soil information of the intersections of the supplied geometry
-        and the fields. If no epsg is provided EPSG:28992 (Dutch RD) is assumed. Currently only EPSGs
-        28992 and 4326 (WGS 84) are supported.
+      summary: Retrieve the geometry and soil information of the intersections of the supplied geometry and the fields. If no epsg is p
+      description: Retrieve the geometry and soil information of the intersections of the supplied geometry and the fields. If no epsg is provided EPSG:28992 (Dutch RD) is assumed. Currently only EPSGs 28992 and 4326 (WGS 84) are supported.
       operationId: get_fields
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -279,8 +264,7 @@ paths:
       operationId: get_fields_fieldid
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -325,8 +309,7 @@ paths:
       operationId: get_fields_fieldid_ahn
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -365,8 +348,7 @@ paths:
       operationId: get_fields_fieldid_meteostations
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -406,15 +388,12 @@ paths:
         example: '0'
   /fields/{fieldid}/ndvi:
     get:
-      summary: Retrieve the available NDVI (Normalized Difference Vegetation Index) values for a specific
-        field and time period.
-      description: Retrieve the available NDVI (Normalized Difference Vegetation Index) values for a specific
-        field and time period.
+      summary: Retrieve the available NDVI (Normalized Difference Vegetation Index) values for a specific field and time period.
+      description: Retrieve the available NDVI (Normalized Difference Vegetation Index) values for a specific field and time period.
       operationId: get_fields_fieldid_ndvi
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -454,16 +433,12 @@ paths:
         example: '0'
   /fields/{fieldid}/soilparams:
     get:
-      summary: Retrieve the spatial intersections of a field with the soil physical parameters geometries
-        (for more detailed informatio
-      description: 'Retrieve the spatial intersections of a field with the soil physical parameters geometries
-        (for more detailed information see http://content.alterra.wur.nl/Webdocs/PDFFiles/Alterrarapporten/AlterraRapport2387.pdf).
-        The soilparamid returned can be used to '
+      summary: Retrieve the spatial intersections of a field with the soil physical parameters geometries (for more detailed informatio
+      description: 'Retrieve the spatial intersections of a field with the soil physical parameters geometries (for more detailed information see http://content.alterra.wur.nl/Webdocs/PDFFiles/Alterrarapporten/AlterraRapport2387.pdf). The soilparamid returned can be used to '
       operationId: get_fields_fieldid_soilparams
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -503,15 +478,12 @@ paths:
         example: '0'
   /fields/{fieldid}/soiltypes:
     get:
-      summary: 'Retrieve the spatial intersections of the field with the geometries of the soilmap 1 :
-        50.000. The soilid returned is th'
-      description: 'Retrieve the spatial intersections of the field with the geometries of the soilmap
-        1 : 50.000. The soilid returned is the objectid in the shapefile as provided by PDOK.'
+      summary: 'Retrieve the spatial intersections of the field with the geometries of the soilmap 1 : 50.000. The soilid returned is th'
+      description: 'Retrieve the spatial intersections of the field with the geometries of the soilmap 1 : 50.000. The soilid returned is the objectid in the shapefile as provided by PDOK.'
       operationId: get_fields_fieldid_soiltypes
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -551,15 +523,12 @@ paths:
         example: '0'
   /meteodata:
     get:
-      summary: Retrieve weather data from one of the meteostations for a specified time period.  Dates
-        can be entered as yyyymmdd, yyyy
-      description: Retrieve weather data from one of the meteostations for a specified time period.  Dates
-        can be entered as yyyymmdd, yyyymm, or yyyy.
+      summary: Retrieve weather data from one of the meteostations for a specified time period.  Dates can be entered as yyyymmdd, yyyy
+      description: Retrieve weather data from one of the meteostations for a specified time period.  Dates can be entered as yyyymmdd, yyyymm, or yyyy.
       operationId: get_meteodata
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -608,15 +577,12 @@ paths:
         example: '0'
   /meteodata/{stationid}/{date}:
     get:
-      summary: Retrieve weather data from one of the meteostations and for a specific date.  The date
-        can be entered as yyyymmdd, yyyym
-      description: Retrieve weather data from one of the meteostations and for a specific date.  The date
-        can be entered as yyyymmdd, yyyymm, or yyyy.
+      summary: Retrieve weather data from one of the meteostations and for a specific date.  The date can be entered as yyyymmdd, yyyym
+      description: Retrieve weather data from one of the meteostations and for a specific date.  The date can be entered as yyyymmdd, yyyymm, or yyyy.
       operationId: get_meteodata_stationid_date
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -654,15 +620,14 @@ paths:
         schema:
           type: integer
         example: '0'
-  /meteostations:
+  /codes/category:
     get:
-      summary: Return a list of all meteostations for which data is available.
-      description: Return a list of all meteostations for which data is available.
-      operationId: get_meteostations
+      summary: Retrieve detailed crop category information
+      description: Retrieve detailed crop category information
+      operationId: get_codes_category
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -674,14 +639,14 @@ paths:
       security:
       - tokenHeader: []
       tags:
-      - Return
+      - Retrieve
       parameters:
-      - name: output_epsg
+      - name: name
         in: query
         required: false
         schema:
-          type: integer
-        example: '4326'
+          type: string
+        example: The requested category
       - name: page_size
         in: query
         required: false
@@ -694,15 +659,14 @@ paths:
         schema:
           type: integer
         example: '0'
-  /meteostations/{meteostation}:
+  /fields/{fieldid}/bouwland_markers:
     get:
-      summary: Return the data for the given meteostation.
-      description: Return the data for the given meteostation.
-      operationId: get_meteostations_meteostation
+      summary: Retrieve arable land markers for a specific crop  field
+      description: Retrieve arable land markers for a specific crop  field
+      operationId: get_fields_fieldid_bouwland_markers
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -714,20 +678,14 @@ paths:
       security:
       - tokenHeader: []
       tags:
-      - Return
+      - Retrieve
       parameters:
-      - name: meteostation
+      - name: fieldid
         in: path
         required: true
         schema:
           type: string
-        description: Path parameter meteostation.
-      - name: output_epsg
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '4326'
+        description: Path parameter fieldid.
       - name: page_size
         in: query
         required: false
@@ -740,15 +698,14 @@ paths:
         schema:
           type: integer
         example: '0'
-  /regions/municipalities:
+  /fields/{fieldid}/crophistory:
     get:
-      summary: Return all municipalities (gemeentes), based on the boundaries for 2015.
-      description: Return all municipalities (gemeentes), based on the boundaries for 2015.
-      operationId: get_regions_municipalities
+      summary: Retrieve the crop history for a parcel, based on its geometry
+      description: Retrieve the crop history for a parcel, based on its geometry
+      operationId: get_fields_fieldid_crophistory
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -760,134 +717,14 @@ paths:
       security:
       - tokenHeader: []
       tags:
-      - Return
+      - Retrieve
       parameters:
-      - name: page_size
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '25'
-      - name: page_offset
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '0'
-      - name: output_epsg
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '4326'
-  /regions/postalcodes:
-    get:
-      summary: Return the dutch 6-positions postalcode areas.
-      description: Return the dutch 6-positions postalcode areas.
-      operationId: get_regions_postalcodes
-      responses:
-        '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FeatureCollection'
-        '401':
-          description: Missing or invalid access token.
-        '404':
-          description: Resource not found.
-      security:
-      - tokenHeader: []
-      tags:
-      - Return
-      parameters:
-      - name: page_size
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '25'
-      - name: output_epsg
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '4326'
-      - name: page_offset
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '0'
-  /regions/provences:
-    get:
-      summary: Return the provinces. These are the boundaries from 2015.
-      description: Return the provinces. These are the boundaries from 2015.
-      operationId: get_regions_provences
-      responses:
-        '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FeatureCollection'
-        '401':
-          description: Missing or invalid access token.
-        '404':
-          description: Resource not found.
-      security:
-      - tokenHeader: []
-      tags:
-      - Return
-      parameters:
-      - name: page_size
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '25'
-      - name: output_epsg
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '4326'
-      - name: page_offset
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '0'
-  /soilparams/{soilparamid}:
-    get:
-      summary: Return all the information for the given soilparamid.
-      description: Return all the information for the given soilparamid.
-      operationId: get_soilparams_soilparamid
-      responses:
-        '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FeatureCollection'
-        '401':
-          description: Missing or invalid access token.
-        '404':
-          description: Resource not found.
-      security:
-      - tokenHeader: []
-      tags:
-      - Return
-      parameters:
-      - name: soilparamid
+      - name: fieldid
         in: path
         required: true
         schema:
           type: string
-        description: Path parameter soilparamid.
+        description: Path parameter fieldid.
       - name: page_size
         in: query
         required: false
@@ -900,17 +737,14 @@ paths:
         schema:
           type: integer
         example: '0'
-  /soiltypes:
+  /fields/{fieldid}/croprotationindex:
     get:
-      summary: Return the intersections of the supplied geometry and soilmap. If no epsg is provided epsg
-        = 28992 (RD) is assumed. Curr
-      description: Return the intersections of the supplied geometry and soilmap. If no epsg is provided
-        epsg = 28992 (RD) is assumed. Currently only epsg's 28992 and 4326 (WGS 84) are supported
-      operationId: get_soiltypes
+      summary: Retrieve the crop rotation index for a field
+      description: Retrieve the crop rotation index for a field
+      operationId: get_fields_fieldid_croprotationindex
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -922,71 +756,14 @@ paths:
       security:
       - tokenHeader: []
       tags:
-      - Return
+      - Retrieve
       parameters:
-      - name: output_epsg
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '4326'
-      - name: geometry
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: epsg
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '4326'
-      - name: page_size
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '25'
-      - name: page_offset
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '0'
-  /soiltypes/{entityid}:
-    get:
-      summary: Return all the information for the given soilmap entityid.
-      description: Return all the information for the given soilmap entityid.
-      operationId: get_soiltypes_entityid
-      responses:
-        '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FeatureCollection'
-        '401':
-          description: Missing or invalid access token.
-        '404':
-          description: Resource not found.
-      security:
-      - tokenHeader: []
-      tags:
-      - Return
-      parameters:
-      - name: entityid
+      - name: fieldid
         in: path
         required: true
         schema:
           type: string
-        description: Path parameter entityid.
-      - name: output_epsg
-        in: query
-        required: false
-        schema:
-          type: integer
-        example: '4326'
+        description: Path parameter fieldid.
       - name: page_size
         in: query
         required: false
@@ -999,15 +776,14 @@ paths:
         schema:
           type: integer
         example: '0'
-  /sources:
+  /fields/{fieldid}/grasland_markers:
     get:
-      summary: Return all information about availabe data
-      description: Return all information about availabe data
-      operationId: get_sources
+      summary: Retrieve graslandmarkers for a specific crop field
+      description: Retrieve graslandmarkers for a specific crop field
+      operationId: get_fields_fieldid_grasland_markers
       responses:
         '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
+          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources) or a binary GeoTIFF image (raster *_image resources).
           content:
             application/json:
               schema:
@@ -1019,42 +795,26 @@ paths:
       security:
       - tokenHeader: []
       tags:
-      - Return
-  /sources/{resource_name}:
-    get:
-      summary: Return all information for the given resource
-      description: Return all information for the given resource
-      operationId: get_sources_resource_name
-      responses:
-        '200':
-          description: Successful response. AgroDataCube returns a GeoJSON FeatureCollection (vector resources)
-            or a binary GeoTIFF image (raster *_image resources).
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FeatureCollection'
-        '401':
-          description: Missing or invalid access token.
-        '404':
-          description: Resource not found.
-      security:
-      - tokenHeader: []
-      tags:
-      - Return
+      - Retrieve
       parameters:
-      - name: resource_name
+      - name: fieldid
         in: path
         required: true
         schema:
           type: string
-        description: Path parameter resource_name.
+        description: Path parameter fieldid.
+      - name: page_size
+        in: query
+        required: false
+        schema:
+          type: integer
+        example: '25'
+      - name: page_offset
+        in: query
+        required: false
+        schema:
+          type: integer
 components:
-  securitySchemes:
-    tokenHeader:
-      type: apiKey
-      in: header
-      name: token
-      description: Access token obtained via https://agrodatacube.wur.nl/api/register.jsp
   schemas:
     FeatureCollection:
       type: object
@@ -1073,8 +833,7 @@ components:
             $ref: '#/components/schemas/Feature'
     Feature:
       type: object
-      description: GeoJSON Feature with a geometry and a free-form properties map whose keys depend on
-        the queried resource.
+      description: GeoJSON Feature with a geometry and a free-form properties map whose keys depend on the queried resource.
       required:
       - type
       - geometry
@@ -1108,27 +867,9 @@ components:
         coordinates:
           type: array
           items: {}
-    Field:
-      type: object
-      description: Properties of a crop field feature.
-      properties:
-        fieldid:
-          type: integer
-          example: 4006258
-        year:
-          type: integer
-          example: 2017
-        crop_code:
-          type: string
-          example: '256'
-        crop_name:
-          type: string
-          example: Bieten, suiker-
-        area:
-          type: number
-          format: double
-          example: 93344.82117765881
-        perimeter:
-          type: number
-          format: double
-          example: 1328.8669438915447
+  securitySchemes:
+    tokenHeader:
+      type: apiKey
+      in: header
+      name: token
+      description: Access token obtained via https://agrodatacube.wur.nl/api/register.jsp
