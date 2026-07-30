@@ -15,9 +15,22 @@ description: >-
   though documented public web-service/OAI endpoints there were not openly
   reachable at review time.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/wageningen-university-research.png
 url: https://raw.githubusercontent.com/api-evangelist/wageningen-university-research/refs/heads/main/apis.yml
 tags:
   - Education
@@ -32,62 +45,152 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - aid: wageningen-university-research:agrodatacube-v2
-    name: AgroDataCube API v2
-    description: >-
-      Token-based REST API providing a large collection of open and derived
-      data for agri-food applications, including crop fields, soil, weather,
-      NDVI vegetation indices, altitude and raster (GeoTIFF) data via spatial
-      queries. Free for non-commercial use under a Creative Commons
-      BY-NC-SA license.
-    humanURL: https://agrodatacube.wur.nl/
-    baseURL: https://agrodatacube.wur.nl/api/v2/rest/
-    tags: [ Agriculture, Agri-Food, Open Data, Geospatial, Weather ]
-    properties:
-      - type: Documentation
-        url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
-      - type: Signup
-        url: https://agrodatacube.wur.nl/api/register.jsp
-      - type: OpenAPI
-        url: openapi/wageningen-university-research-agrodatacube-v2.yaml
-      - type: JSONSchema
-        url: json-schema/wageningen-university-research-field-schema.json
-      - type: x-json-structure
-        url: json-structure/wageningen-university-research-field-structure.json
-      - type: x-rules
-        url: rules/wageningen-university-research-rules.yml
-      - type: x-vocabulary
-        url: vocabulary/wageningen-university-research-vocabulary.yml
-      - type: x-json-ld
-        url: json-ld/wageningen-university-research-context.jsonld
-  - aid: wageningen-university-research:agrodatacube-v1
-    name: AgroDataCube API v1 (legacy)
-    description: >-
-      Legacy version of the AgroDataCube REST API for agri-food open data.
-      Superseded by v2 but still available; uses the same access token.
-    humanURL: https://agrodatacube.wur.nl/
-    tags: [ Agriculture, Agri-Food, Open Data, Geospatial ]
-    properties:
-      - type: Documentation
-        url: https://documenter.getpostman.com/view/3862510/RVnSHh76
-      - type: Signup
-        url: https://agrodatacube.wur.nl/api/register.jsp
-      - type: OpenAPI
-        url: openapi/wageningen-university-research-agrodatacube-v1.yaml
-  - aid: wageningen-university-research:wfbr-food-api
-    name: WFBR Food API
-    description: >-
-      API for scientific data about food products, published by Wageningen
-      Food & Biobased Research (WFBR) through an Azure API Management developer
-      portal. Provides software services and algorithms returning information
-      on food items from documented sources in the Netherlands.
-    humanURL: https://euw-apim-fism-001-p.developer.azure-api.net/apis
-    tags: [ Food, Agri-Food, Scientific Data ]
-    properties:
-      - type: Documentation
-        url: https://euw-apim-fism-001-p.developer.azure-api.net/apis
-      - type: Signup
-        url: https://euw-apim-fism-001-p.developer.azure-api.net/signup
+- aid: wageningen-university-research:wfbr-food-api
+  name: WFBR Food API
+  description: >-
+    API for scientific data about food products, published by Wageningen Food & Biobased Research (WFBR)
+    through an Azure API Management developer portal. Provides software services and algorithms returning
+    information on food items from documented sources in the Netherlands.
+  humanURL: https://euw-apim-fism-001-p.developer.azure-api.net/apis
+  tags:
+  - Food
+  - Agri-Food
+  - Scientific Data
+  properties:
+  - type: Documentation
+    url: https://euw-apim-fism-001-p.developer.azure-api.net/apis
+  - type: Signup
+    url: https://euw-apim-fism-001-p.developer.azure-api.net/signup
+- aid: wageningen-university-research:wageningen-university-research-altitude-api
+  name: Wageningen University & Research Altitude API
+  description: The Altitude API from Wageningen University & Research — 1 operation(s) for altitude.
+  humanURL: https://agrodatacube.wur.nl/
+  baseURL: https://agrodatacube.wur.nl/api/v2/rest/
+  tags:
+  - Altitude
+  properties:
+  - type: OpenAPI
+    url: openapi/wageningen-university-research-altitude-api-openapi.yml
+  - type: Documentation
+    url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+  - type: Signup
+    url: https://agrodatacube.wur.nl/api/register.jsp
+  - type: JSONSchema
+    url: json-schema/wageningen-university-research-field-schema.json
+  - type: x-json-structure
+    url: json-structure/wageningen-university-research-field-structure.json
+  - type: x-rules
+    url: rules/wageningen-university-research-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/wageningen-university-research-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/wageningen-university-research-context.jsonld
+  - type: Documentation
+    url: https://documenter.getpostman.com/view/3862510/RVnSHh76
+- aid: wageningen-university-research:wageningen-university-research-kpi-api
+  name: Wageningen University & Research KPI API
+  description: The KPI API from Wageningen University & Research — 2 operation(s) for kpi.
+  humanURL: https://agrodatacube.wur.nl/
+  baseURL: https://agrodatacube.wur.nl/api/v2/rest/
+  tags:
+  - KPI
+  properties:
+  - type: OpenAPI
+    url: openapi/wageningen-university-research-kpi-api-openapi.yml
+  - type: Documentation
+    url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+  - type: Signup
+    url: https://agrodatacube.wur.nl/api/register.jsp
+  - type: JSONSchema
+    url: json-schema/wageningen-university-research-field-schema.json
+  - type: x-json-structure
+    url: json-structure/wageningen-university-research-field-structure.json
+  - type: x-rules
+    url: rules/wageningen-university-research-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/wageningen-university-research-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/wageningen-university-research-context.jsonld
+  - type: Documentation
+    url: https://documenter.getpostman.com/view/3862510/RVnSHh76
+- aid: wageningen-university-research:wageningen-university-research-raster-api
+  name: Wageningen University & Research Raster API
+  description: The Raster API from Wageningen University & Research — 4 operation(s) for raster.
+  humanURL: https://agrodatacube.wur.nl/
+  baseURL: https://agrodatacube.wur.nl/api/v2/rest/
+  tags:
+  - Raster
+  properties:
+  - type: OpenAPI
+    url: openapi/wageningen-university-research-raster-api-openapi.yml
+  - type: Documentation
+    url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+  - type: Signup
+    url: https://agrodatacube.wur.nl/api/register.jsp
+  - type: JSONSchema
+    url: json-schema/wageningen-university-research-field-schema.json
+  - type: x-json-structure
+    url: json-structure/wageningen-university-research-field-structure.json
+  - type: x-rules
+    url: rules/wageningen-university-research-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/wageningen-university-research-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/wageningen-university-research-context.jsonld
+  - type: Documentation
+    url: https://documenter.getpostman.com/view/3862510/RVnSHh76
+- aid: wageningen-university-research:wageningen-university-research-retrieve-api
+  name: Wageningen University & Research Retrieve API
+  description: The Retrieve API from Wageningen University & Research — 19 operation(s) for retrieve.
+  humanURL: https://agrodatacube.wur.nl/
+  baseURL: https://agrodatacube.wur.nl/api/v2/rest/
+  tags:
+  - Retrieve
+  properties:
+  - type: OpenAPI
+    url: openapi/wageningen-university-research-retrieve-api-openapi.yml
+  - type: Documentation
+    url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+  - type: Signup
+    url: https://agrodatacube.wur.nl/api/register.jsp
+  - type: JSONSchema
+    url: json-schema/wageningen-university-research-field-schema.json
+  - type: x-json-structure
+    url: json-structure/wageningen-university-research-field-structure.json
+  - type: x-rules
+    url: rules/wageningen-university-research-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/wageningen-university-research-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/wageningen-university-research-context.jsonld
+  - type: Documentation
+    url: https://documenter.getpostman.com/view/3862510/RVnSHh76
+- aid: wageningen-university-research:wageningen-university-research-return-api
+  name: Wageningen University & Research Return API
+  description: The Return API from Wageningen University & Research — 10 operation(s) for return.
+  humanURL: https://agrodatacube.wur.nl/
+  baseURL: https://agrodatacube.wur.nl/api/v2/rest/
+  tags:
+  - Return
+  properties:
+  - type: OpenAPI
+    url: openapi/wageningen-university-research-return-api-openapi.yml
+  - type: Documentation
+    url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+  - type: Signup
+    url: https://agrodatacube.wur.nl/api/register.jsp
+  - type: JSONSchema
+    url: json-schema/wageningen-university-research-field-schema.json
+  - type: x-json-structure
+    url: json-structure/wageningen-university-research-field-structure.json
+  - type: x-rules
+    url: rules/wageningen-university-research-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/wageningen-university-research-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/wageningen-university-research-context.jsonld
+  - type: Documentation
+    url: https://documenter.getpostman.com/view/3862510/RVnSHh76
 common:
   - type: AgenticAccess
     url: agentic-access/wageningen-university-research-agentic-access.yml
