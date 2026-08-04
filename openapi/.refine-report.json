@@ -1,0 +1,22 @@
+{
+  "provider": "wageningen-university-research",
+  "sources": [
+    "wageningen-university-research-altitude-api-openapi.yml",
+    "wageningen-university-research-kpi-api-openapi.yml",
+    "wageningen-university-research-raster-api-openapi.yml",
+    "wageningen-university-research-retrieve-api-openapi.yml",
+    "wageningen-university-research-return-api-openapi.yml"
+  ],
+  "outputs": [
+    "wageningen-university-research-altitude-api-openapi.yml",
+    "wageningen-university-research-kpi-api-openapi.yml",
+    "wageningen-university-research-raster-api-openapi.yml",
+    "wageningen-university-research-retrieve-api-openapi.yml",
+    "wageningen-university-research-return-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
