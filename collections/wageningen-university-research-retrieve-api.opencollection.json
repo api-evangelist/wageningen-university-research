@@ -1,0 +1,741 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AgroDataCube API v1 (legacy) Altitude Retrieve API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Retrieve",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve zonal statistics for altitude using the supplied geometry. If no epsg is provided epsg = 28992 (RD) is assumed.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/ahn",
+            "params": [
+              {
+                "name": "geometry",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "epsg",
+                "value": "4326",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve zonal statistics for altitude using the supplied geometry. If no epsg is provided epsg = 28992 (RD) is assumed. Currently only EPSGs 28992 (Dutch RD) and 4326 (WGS 84) are supported."
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of all possible cropcodes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/codes/cropcodes",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve a list of all possible cropcodes."
+        },
+        {
+          "info": {
+            "name": "Retrieve details for a specific cropcode.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/codes/cropcodes/:cropcode",
+            "params": [
+              {
+                "name": "cropcode",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter cropcode."
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve details for a specific cropcode."
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of all possible soilcodes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/codes/soilcodes",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve a list of all possible soilcodes."
+        },
+        {
+          "info": {
+            "name": "Retrieve details for a specific soilcode.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/codes/soilcodes/:soilcode",
+            "params": [
+              {
+                "name": "soilcode",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter soilcode."
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve details for a specific soilcode."
+        },
+        {
+          "info": {
+            "name": "Retrieve the geometry and soil information of the intersections of the supplied geometry and the fields. If no epsg is p",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields",
+            "params": [
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cropcode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cropname",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "geometry",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "epsg",
+                "value": "4326",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve the geometry and soil information of the intersections of the supplied geometry and the fields. If no epsg is provided EPSG:28992 (Dutch RD) is assumed. Currently only EPSGs 28992 and 4326 (WGS 84) are supported."
+        },
+        {
+          "info": {
+            "name": "Retrieve the geometry and crop information for a specific crop field.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields/:fieldid",
+            "params": [
+              {
+                "name": "fieldid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter fieldid."
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve the geometry and crop information for a specific crop field."
+        },
+        {
+          "info": {
+            "name": "Retrieve altitude zonal statistics (in cm) based on AHN for a specific field.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields/:fieldid/ahn",
+            "params": [
+              {
+                "name": "fieldid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter fieldid."
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve altitude zonal statistics (in cm) based on AHN for a specific field."
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of the nearest meteostations to a specific field, ranked by distance.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields/:fieldid/meteostations",
+            "params": [
+              {
+                "name": "fieldid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter fieldid."
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve a list of the nearest meteostations to a specific field, ranked by distance."
+        },
+        {
+          "info": {
+            "name": "Retrieve the available NDVI (Normalized Difference Vegetation Index) values for a specific field and time period.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields/:fieldid/ndvi",
+            "params": [
+              {
+                "name": "fieldid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter fieldid."
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve the available NDVI (Normalized Difference Vegetation Index) values for a specific field and time period."
+        },
+        {
+          "info": {
+            "name": "Retrieve the spatial intersections of a field with the soil physical parameters geometries (for more detailed informatio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields/:fieldid/soilparams",
+            "params": [
+              {
+                "name": "fieldid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter fieldid."
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve the spatial intersections of a field with the soil physical parameters geometries (for more detailed information see http://content.alterra.wur.nl/Webdocs/PDFFiles/Alterrarapporten/AlterraRapport2387.pdf). The soilparamid returned can be used to "
+        },
+        {
+          "info": {
+            "name": "Retrieve the spatial intersections of the field with the geometries of the soilmap 1 : 50.000. The soilid returned is th",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields/:fieldid/soiltypes",
+            "params": [
+              {
+                "name": "fieldid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter fieldid."
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve the spatial intersections of the field with the geometries of the soilmap 1 : 50.000. The soilid returned is the objectid in the shapefile as provided by PDOK."
+        },
+        {
+          "info": {
+            "name": "Retrieve weather data from one of the meteostations for a specified time period.  Dates can be entered as yyyymmdd, yyyy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/meteodata",
+            "params": [
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "meteostation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromdate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "todate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve weather data from one of the meteostations for a specified time period.  Dates can be entered as yyyymmdd, yyyymm, or yyyy."
+        },
+        {
+          "info": {
+            "name": "Retrieve weather data from one of the meteostations and for a specific date.  The date can be entered as yyyymmdd, yyyym",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/meteodata/:stationid/:date",
+            "params": [
+              {
+                "name": "stationid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter stationid."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter date."
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve weather data from one of the meteostations and for a specific date.  The date can be entered as yyyymmdd, yyyymm, or yyyy."
+        },
+        {
+          "info": {
+            "name": "Retrieve detailed crop category information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/codes/category",
+            "params": [
+              {
+                "name": "name",
+                "value": "The requested category",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve detailed crop category information"
+        },
+        {
+          "info": {
+            "name": "Retrieve arable land markers for a specific crop  field",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields/:fieldid/bouwland_markers",
+            "params": [
+              {
+                "name": "fieldid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter fieldid."
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve arable land markers for a specific crop  field"
+        },
+        {
+          "info": {
+            "name": "Retrieve the crop history for a parcel, based on its geometry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields/:fieldid/crophistory",
+            "params": [
+              {
+                "name": "fieldid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter fieldid."
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve the crop history for a parcel, based on its geometry"
+        },
+        {
+          "info": {
+            "name": "Retrieve the crop rotation index for a field",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields/:fieldid/croprotationindex",
+            "params": [
+              {
+                "name": "fieldid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter fieldid."
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve the crop rotation index for a field"
+        },
+        {
+          "info": {
+            "name": "Retrieve graslandmarkers for a specific crop field",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields/:fieldid/grasland_markers",
+            "params": [
+              {
+                "name": "fieldid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter fieldid."
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve graslandmarkers for a specific crop field"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

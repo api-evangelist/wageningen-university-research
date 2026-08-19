@@ -1,0 +1,164 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AgroDataCube API v1 (legacy) Altitude Raster API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Raster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Raster data geotiff for AHN (ahn_image)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/ahn_image",
+            "params": [
+              {
+                "name": "geometry",
+                "value": "POLYGON((219478 481588.256000001,219478 497638.432,237339.072000001 497638.432,237339.072000001 481588.256000001,219478 481588.256000001))",
+                "type": "query"
+              },
+              {
+                "name": "epsg",
+                "value": "28992",
+                "type": "query"
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Raster data geotiff for AHN (ahn_image)"
+        },
+        {
+          "info": {
+            "name": "Raster data geotiff for AHN (ahn_image)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields/:fieldid/ahn_image",
+            "params": [
+              {
+                "name": "fieldid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter fieldid."
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Raster data geotiff for AHN (ahn_image)"
+        },
+        {
+          "info": {
+            "name": "Raster data geotiff for NDVI (ndvi_image)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/fields/:fieldid/ndvi_image",
+            "params": [
+              {
+                "name": "fieldid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter fieldid."
+              },
+              {
+                "name": "date",
+                "value": "20191117",
+                "type": "query"
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Raster data geotiff for NDVI (ndvi_image)"
+        },
+        {
+          "info": {
+            "name": "Raster data geotiff for NDVI (ndvi_image)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/ndvi_image",
+            "params": [
+              {
+                "name": "date",
+                "value": "20191117",
+                "type": "query"
+              },
+              {
+                "name": "geometry",
+                "value": "POLYGON((219478 481588.256000001,219478 497638.432,237339.072000001 497638.432,237339.072000001 481588.256000001,219478 481588.256000001))",
+                "type": "query"
+              },
+              {
+                "name": "epsg",
+                "value": "28992",
+                "type": "query"
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Raster data geotiff for NDVI (ndvi_image)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

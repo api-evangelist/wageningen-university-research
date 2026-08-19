@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AgroDataCube API v1 (legacy) Altitude API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Altitude",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Altitude zonal statistics for supplied geometry.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/ahn",
+            "params": [
+              {
+                "name": "geometry",
+                "value": "POLYGON((219478 481588.256000001,219478 497638.432,237339.072000001 497638.432,237339.072000001 481588.256000001,219478 481588.256000001))",
+                "type": "query"
+              },
+              {
+                "name": "epsg",
+                "value": "28992",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Altitude zonal statistics for supplied geometry."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AgroDataCube API v1 (legacy) Altitude KPI API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "KPI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "KPI - Croprotation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/datapackage/kpi/croprotation",
+            "params": [
+              {
+                "name": "fieldids",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "KPI - Croprotation"
+        },
+        {
+          "info": {
+            "name": "KPI - Greenness",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/datapackage/kpi/greenness",
+            "params": [
+              {
+                "name": "fieldids",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "KPI - Greenness"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,363 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AgroDataCube API v1 (legacy) Altitude Return API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Return",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return a list of all meteostations for which data is available.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/meteostations",
+            "params": [
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return a list of all meteostations for which data is available."
+        },
+        {
+          "info": {
+            "name": "Return the data for the given meteostation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/meteostations/:meteostation",
+            "params": [
+              {
+                "name": "meteostation",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter meteostation."
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return the data for the given meteostation."
+        },
+        {
+          "info": {
+            "name": "Return all municipalities (gemeentes), based on the boundaries for 2015.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/regions/municipalities",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return all municipalities (gemeentes), based on the boundaries for 2015."
+        },
+        {
+          "info": {
+            "name": "Return the dutch 6-positions postalcode areas.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/regions/postalcodes",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return the dutch 6-positions postalcode areas."
+        },
+        {
+          "info": {
+            "name": "Return the provinces. These are the boundaries from 2015.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/regions/provences",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return the provinces. These are the boundaries from 2015."
+        },
+        {
+          "info": {
+            "name": "Return all the information for the given soilparamid.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/soilparams/:soilparamid",
+            "params": [
+              {
+                "name": "soilparamid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter soilparamid."
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return all the information for the given soilparamid."
+        },
+        {
+          "info": {
+            "name": "Return the intersections of the supplied geometry and soilmap. If no epsg is provided epsg = 28992 (RD) is assumed. Curr",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/soiltypes",
+            "params": [
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "geometry",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return the intersections of the supplied geometry and soilmap. If no epsg is provided epsg = 28992 (RD) is assumed. Currently only epsg's 28992 and 4326 (WGS 84) are supported"
+        },
+        {
+          "info": {
+            "name": "Return all the information for the given soilmap entityid.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/soiltypes/:entityid",
+            "params": [
+              {
+                "name": "entityid",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter entityid."
+              },
+              {
+                "name": "output_epsg",
+                "value": "4326",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "25",
+                "type": "query"
+              },
+              {
+                "name": "page_offset",
+                "value": "0",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return all the information for the given soilmap entityid."
+        },
+        {
+          "info": {
+            "name": "Return all information about availabe data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/sources",
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return all information about availabe data"
+        },
+        {
+          "info": {
+            "name": "Return all information for the given resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrodatacube.wur.nl/api/v1/rest/sources/:resource_name",
+            "params": [
+              {
+                "name": "resource_name",
+                "value": "",
+                "type": "path",
+                "description": "Path parameter resource_name."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return all information for the given resource"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
