@@ -38,6 +38,15 @@ tags:
   - University
   - Research
   - Agriculture
+  - Agrifood
+  - Open Data
+  - Netherlands
+tags_raw:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - Agriculture
   - Agri-Food
   - Open Data
   - Netherlands
@@ -53,6 +62,10 @@ apis:
     information on food items from documented sources in the Netherlands.
   humanURL: https://euw-apim-fism-001-p.developer.azure-api.net/apis
   tags:
+  - Food
+  - Agrifood
+  - Scientific Data
+  tags_raw:
   - Food
   - Agri-Food
   - Scientific Data
@@ -144,7 +157,8 @@ apis:
   description: The Retrieve API from Wageningen University & Research — 19 operation(s) for retrieve.
   humanURL: https://agrodatacube.wur.nl/
   baseURL: https://agrodatacube.wur.nl/api/v2/rest/
-  tags:
+  tags: []
+  tags_raw:
   - Retrieve
   properties:
   - type: OpenAPI
