@@ -1,19 +1,27 @@
 ---
 aid: wageningen-university-research
 name: Wageningen University & Research
+x-type: university
+x-category: Public Research University
 description: >-
-  Wageningen University & Research (WUR) is a Dutch university and research
-  institution based in Wageningen, Netherlands, specializing in the domain of
-  healthy food and living environment, and ranked #100 in the QS World
-  University Rankings 2025. Its public developer footprint centers on the
-  agri-food research domain rather than a single central API platform: the
-  AgroDataCube provides a token-based REST API over a large open data
-  collection for agri-food applications, and Wageningen Food & Biobased
-  Research (WFBR) operates an Azure API Management developer portal publishing
-  a Food API for scientific data about food products. WUR also runs a
-  Pure-powered Research Portal (research.wur.nl) and a public Data Portal,
-  though documented public web-service/OAI endpoints there were not openly
-  reachable at review time.
+  Wageningen University & Research (WUR) is the Dutch public research university and research
+  foundation for healthy food and the living environment, in Wageningen, Netherlands, and ranked
+  #100 in the QS World University Rankings 2025. Its programmable footprint is real but small, and
+  it sits in the research institutes rather than in a central developer platform: AgroDataCube, run
+  by Wageningen Environmental Research at agrodatacube.wur.nl, is a token-gated REST API over an
+  open agri-food data collection for the Netherlands; the WFBR API Portal, run by Wageningen Food &
+  Biobased Research on its own Azure API Management instance, publishes a Food API behind
+  registration and WUR's own terms of use; the university library operates a complete, keyless
+  OAI-PMH 2.0 endpoint at library.wur.nl/oai over "Wageningen University & Research Publications",
+  serving Dublin Core, MODS, DIDL and OpenAIRE/DataCite metadata; and Wageningen Marine Research
+  runs an OGC WMS/WFS GeoServer at opengeodata.wmr.wur.nl. WUR also operates two SAML identity
+  providers registered in SURFconext and therefore eduGAIN. What WUR does not have is a central API
+  programme: there is no institution-wide developer portal, no course-catalog or registrar API
+  (api.wur.nl and ssc.wur.nl resolve but time out from the public internet), and no published
+  OpenAPI of its own — every OpenAPI in this repository is ours, derived from WUR's Postman
+  collections and from live probes. The Research Portal at research.wur.nl is an Elsevier Pure
+  tenancy: WUR's data and DOIs, Elsevier's contract, and it is recorded here as a tenant
+  relationship rather than credited to WUR as engineering.
 type: Index
 deliveryModel:
   model: saas
@@ -49,33 +57,99 @@ tags:
   - Higher Education
   - University
   - Research
+  - Research Data
   - Agriculture
-  - Agrifood
+  - Agri-Food
+  - Geospatial
+  - Library
   - Open Data
+  - Identity Federation
   - Netherlands
 tags_raw:
   - Education
   - Higher Education
   - University
   - Research
+  - Research Data
   - Agriculture
   - Agri-Food
+  - Geospatial
+  - Library
   - Open Data
+  - Identity Federation
   - Netherlands
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 specificationVersion: '0.23'
+x-coverage:
+  state: covered
+  reason: covered
+  detail: >-
+    Four institution-operated machine-readable surfaces were found and probed live, which is more
+    than most universities in this cohort have: AgroDataCube v2 (agrodatacube.wur.nl, token-gated,
+    routes answer 403 "No token supplied" rather than 404), the WFBR Food API on WUR's own Azure API
+    Management instance (registration-gated; the portal catalogue is an SPA and the management API
+    answers 401, so the contract itself is not readable), the library OAI-PMH 2.0 endpoint at
+    library.wur.nl/oai (fully open, all six verbs verified), and the Wageningen Marine Research
+    GeoServer at opengeodata.wmr.wur.nl (WMS/WFS live; global GetCapabilities disabled, so the layer
+    catalogue is not anonymously enumerable). Two SAML IdP entities in SURFconext/eduGAIN add an
+    identity-federation surface. The profile is thin in one specific way and it is worth naming: WUR
+    publishes no OpenAPI, no central developer portal and no registrar/course-catalog API —
+    api.wur.nl (137.224.9.86) and ssc.wur.nl (137.224.205.63) both resolve in DNS but time out on
+    :80 and :443 from the public internet, and osiris.wur.nl answers 403. The AgroDataCube v1 base
+    is retired (HTTP 404), which is why the five AgroDataCube contracts in this repo were re-based
+    onto v2 in this run.
+  evidence:
+  - url: https://library.wur.nl/oai?verb=Identify
+    status: 200
+  - url: https://library.wur.nl/oai?verb=ListSets
+    status: 200
+  - url: https://agrodatacube.wur.nl/api/v2/rest/fields
+    status: 403
+  - url: https://agrodatacube.wur.nl/api/v2/rest/sources
+    status: 200
+  - url: https://agrodatacube.wur.nl/api/v1/rest/fields
+    status: 404
+  - url: https://euw-apim-fism-001-p.developer.azure-api.net/apis
+    status: 200
+  - url: https://euw-apim-fism-001-p.management.azure-api.net/subscriptions/000/resourceGroups/000/providers/Microsoft.ApiManagement/service/euw-apim-fism-001-p/apis?api-version=2022-04-01-preview
+    status: 401
+  - url: https://opengeodata.wmr.wur.nl/
+    status: 200
+  - url: https://opengeodata.wmr.wur.nl/geoserver/ows?service=WFS&version=2.0.0&request=GetCapabilities
+    status: 200
+  - url: https://metadata.surfconext.nl/idps-metadata.xml
+    status: 200
+  - url: https://research.wur.nl/
+    status: 200
+  - url: https://api.wur.nl/
+    status: 0
+  - url: https://ssc.wur.nl/
+    status: 0
+  - url: https://osiris.wur.nl/
+    status: 403
+  - url: https://www.wur.nl/.well-known/security.txt
+    status: 200
 apis:
 - aid: wageningen-university-research:wfbr-food-api
   name: WFBR Food API
+  x-operator: institution
+  x-operator-evidence: >-
+    euw-apim-fism-001-p is Wageningen Food & Biobased Research's own Azure API Management instance —
+    Azure is hosting, not authorship. The portal's Terms of Use are written by WUR in WUR's name
+    ("Wageningen University and Stichting Wageningen Research (jointly: WUR) grants the user the
+    right to access and use the application programming interfaces made available by WUR through
+    the WFBR API Portal"), which settles who operates the API behind it.
   description: >-
-    API for scientific data about food products, published by Wageningen Food & Biobased Research (WFBR)
-    through an Azure API Management developer portal. Provides software services and algorithms returning
-    information on food items from documented sources in the Netherlands.
+    API for scientific data about food products, published by Wageningen Food & Biobased Research
+    (WFBR) through WUR's own Azure API Management instance. Provides software services and
+    algorithms returning information on food items from documented sources in the Netherlands.
+    Gated: the portal catalogue renders client-side and the APIM management API answers HTTP 401
+    anonymously, so no contract could be read and none is stored here. Registration is self-serve.
   humanURL: https://euw-apim-fism-001-p.developer.azure-api.net/apis
   tags:
   - Food
-  - Agrifood
+  - Agri-Food
   - Scientific Data
   tags_raw:
   - Food
@@ -86,18 +160,64 @@ apis:
     url: https://euw-apim-fism-001-p.developer.azure-api.net/apis
   - type: Signup
     url: https://euw-apim-fism-001-p.developer.azure-api.net/signup
+  - type: TermsOfService
+    url: https://euw-apim-fism-001-p.developer.azure-api.net/terms-of-use
+- aid: wageningen-university-research:wageningen-university-research-library-oai-pmh
+  name: WUR Library OAI-PMH API
+  x-operator: institution
+  x-operator-evidence: >-
+    library.wur.nl is under WUR's own registrable domain; the Identify response names the repository
+    "Wageningen University & Research Publications" with repositoryIdentifier library.wur.nl and
+    adminEmail servicedesk.facilities@wur.nl, and the surface is generated by WUR's own WURLIB6
+    library software. No vendor host, title or contact appears anywhere in it.
+  description: >-
+    Open, keyless OAI-PMH 2.0 harvesting interface over the WUR Publications repository — all six
+    verbs verified live, four metadata formats (oai_dc, mods, nl_didl, oai_openaire) and eight sets
+    including openaire, thesis, dataset, worldcat and edurep. The OpenAPI here is ours, written from
+    live probes on 2026-08-30, not published by WUR.
+  humanURL: https://www.wur.nl/en/library
+  baseURL: https://library.wur.nl
+  tags:
+  - OAI-PMH
+  - Library
+  - Research Data
+  - Metadata
+  tags_raw:
+  - OAI-PMH
+  - Library
+  - Research Data
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/wageningen-university-research-library-oai-pmh-openapi.yml
+  - type: Documentation
+    url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+  - type: Explorer
+    url: https://library.wur.nl/oai?verb=Identify
+  - type: Conformance
+    url: conformance/wageningen-university-research-conformance.yml
+  - type: x-example
+    url: examples/wageningen-university-research-oai-identify-example.xml
+  - type: x-example
+    url: examples/wageningen-university-research-oai-listsets-example.xml
 - aid: wageningen-university-research:wageningen-university-research-altitude-api
   name: Wageningen University & Research Altitude API
-  description: The Altitude API from Wageningen University & Research — 1 operation(s) for altitude.
+  x-operator: institution
+  x-operator-evidence: agrodatacube.wur.nl is a host under WUR's own registrable domain; AgroDataCube is operated by Wageningen Environmental Research.
+  description: The Altitude API from AgroDataCube v2, operated by Wageningen Environmental Research — 1 operation for altitude zonal statistics.
   humanURL: https://agrodatacube.wur.nl/
-  baseURL: https://agrodatacube.wur.nl/api/v2/rest/
+  baseURL: https://agrodatacube.wur.nl/api/v2/rest
   tags:
+  - Altitude
+  tags_raw:
   - Altitude
   properties:
   - type: OpenAPI
     url: openapi/wageningen-university-research-altitude-api-openapi.yml
   - type: Documentation
     url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+  - type: APIReference
+    url: https://documenter.getpostman.com/view/5525378/S1EQSdKN
   - type: Signup
     url: https://agrodatacube.wur.nl/api/register.jsp
   - type: JSONSchema
@@ -110,20 +230,26 @@ apis:
     url: vocabulary/wageningen-university-research-vocabulary.yml
   - type: x-json-ld
     url: json-ld/wageningen-university-research-context.jsonld
-  - type: Documentation
-    url: https://documenter.getpostman.com/view/3862510/RVnSHh76
+  - type: Conformance
+    url: conformance/wageningen-university-research-conformance.yml
 - aid: wageningen-university-research:wageningen-university-research-kpi-api
   name: Wageningen University & Research KPI API
-  description: The KPI API from Wageningen University & Research — 2 operation(s) for kpi.
+  x-operator: institution
+  x-operator-evidence: agrodatacube.wur.nl is a host under WUR's own registrable domain; AgroDataCube is operated by Wageningen Environmental Research.
+  description: The KPI API from AgroDataCube v2, operated by Wageningen Environmental Research — 2 operations for crop-rotation and greenness indicators.
   humanURL: https://agrodatacube.wur.nl/
-  baseURL: https://agrodatacube.wur.nl/api/v2/rest/
+  baseURL: https://agrodatacube.wur.nl/api/v2/rest
   tags:
+  - KPI
+  tags_raw:
   - KPI
   properties:
   - type: OpenAPI
     url: openapi/wageningen-university-research-kpi-api-openapi.yml
   - type: Documentation
     url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+  - type: APIReference
+    url: https://documenter.getpostman.com/view/5525378/S1EQSdKN
   - type: Signup
     url: https://agrodatacube.wur.nl/api/register.jsp
   - type: JSONSchema
@@ -136,20 +262,26 @@ apis:
     url: vocabulary/wageningen-university-research-vocabulary.yml
   - type: x-json-ld
     url: json-ld/wageningen-university-research-context.jsonld
-  - type: Documentation
-    url: https://documenter.getpostman.com/view/3862510/RVnSHh76
+  - type: Conformance
+    url: conformance/wageningen-university-research-conformance.yml
 - aid: wageningen-university-research:wageningen-university-research-raster-api
   name: Wageningen University & Research Raster API
-  description: The Raster API from Wageningen University & Research — 4 operation(s) for raster.
+  x-operator: institution
+  x-operator-evidence: agrodatacube.wur.nl is a host under WUR's own registrable domain; AgroDataCube is operated by Wageningen Environmental Research.
+  description: The Raster API from AgroDataCube v2, operated by Wageningen Environmental Research — 4 operations returning GeoTIFF altitude and NDVI imagery.
   humanURL: https://agrodatacube.wur.nl/
-  baseURL: https://agrodatacube.wur.nl/api/v2/rest/
+  baseURL: https://agrodatacube.wur.nl/api/v2/rest
   tags:
+  - Raster
+  tags_raw:
   - Raster
   properties:
   - type: OpenAPI
     url: openapi/wageningen-university-research-raster-api-openapi.yml
   - type: Documentation
     url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+  - type: APIReference
+    url: https://documenter.getpostman.com/view/5525378/S1EQSdKN
   - type: Signup
     url: https://agrodatacube.wur.nl/api/register.jsp
   - type: JSONSchema
@@ -162,14 +294,17 @@ apis:
     url: vocabulary/wageningen-university-research-vocabulary.yml
   - type: x-json-ld
     url: json-ld/wageningen-university-research-context.jsonld
-  - type: Documentation
-    url: https://documenter.getpostman.com/view/3862510/RVnSHh76
+  - type: Conformance
+    url: conformance/wageningen-university-research-conformance.yml
 - aid: wageningen-university-research:wageningen-university-research-retrieve-api
   name: Wageningen University & Research Retrieve API
-  description: The Retrieve API from Wageningen University & Research — 19 operation(s) for retrieve.
+  x-operator: institution
+  x-operator-evidence: agrodatacube.wur.nl is a host under WUR's own registrable domain; AgroDataCube is operated by Wageningen Environmental Research.
+  description: The Retrieve API from AgroDataCube v2, operated by Wageningen Environmental Research — 18 operations over fields, crops, soils, meteo data and code lists.
   humanURL: https://agrodatacube.wur.nl/
-  baseURL: https://agrodatacube.wur.nl/api/v2/rest/
-  tags: []
+  baseURL: https://agrodatacube.wur.nl/api/v2/rest
+  tags:
+  - Retrieve
   tags_raw:
   - Retrieve
   properties:
@@ -177,6 +312,8 @@ apis:
     url: openapi/wageningen-university-research-retrieve-api-openapi.yml
   - type: Documentation
     url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+  - type: APIReference
+    url: https://documenter.getpostman.com/view/5525378/S1EQSdKN
   - type: Signup
     url: https://agrodatacube.wur.nl/api/register.jsp
   - type: JSONSchema
@@ -189,20 +326,26 @@ apis:
     url: vocabulary/wageningen-university-research-vocabulary.yml
   - type: x-json-ld
     url: json-ld/wageningen-university-research-context.jsonld
-  - type: Documentation
-    url: https://documenter.getpostman.com/view/3862510/RVnSHh76
+  - type: Conformance
+    url: conformance/wageningen-university-research-conformance.yml
 - aid: wageningen-university-research:wageningen-university-research-return-api
   name: Wageningen University & Research Return API
-  description: The Return API from Wageningen University & Research — 10 operation(s) for return.
+  x-operator: institution
+  x-operator-evidence: agrodatacube.wur.nl is a host under WUR's own registrable domain; AgroDataCube is operated by Wageningen Environmental Research.
+  description: The Return API from AgroDataCube v2, operated by Wageningen Environmental Research — 9 operations returning meteo stations, regions, soil types and source information.
   humanURL: https://agrodatacube.wur.nl/
-  baseURL: https://agrodatacube.wur.nl/api/v2/rest/
+  baseURL: https://agrodatacube.wur.nl/api/v2/rest
   tags:
+  - Return
+  tags_raw:
   - Return
   properties:
   - type: OpenAPI
     url: openapi/wageningen-university-research-return-api-openapi.yml
   - type: Documentation
     url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+  - type: APIReference
+    url: https://documenter.getpostman.com/view/5525378/S1EQSdKN
   - type: Signup
     url: https://agrodatacube.wur.nl/api/register.jsp
   - type: JSONSchema
@@ -215,9 +358,62 @@ apis:
     url: vocabulary/wageningen-university-research-vocabulary.yml
   - type: x-json-ld
     url: json-ld/wageningen-university-research-context.jsonld
-  - type: Documentation
-    url: https://documenter.getpostman.com/view/3862510/RVnSHh76
+  - type: Conformance
+    url: conformance/wageningen-university-research-conformance.yml
+- aid: wageningen-university-research:wageningen-research-portal-pure
+  name: WUR Research Portal (Elsevier Pure tenancy)
+  x-operator: tenant
+  x-operator-evidence: >-
+    research.wur.nl is WUR's institutional research-information portal, and it is an Elsevier Pure
+    deployment — the served page identifies Pure and Elsevier in its own markup and footer. The
+    research outputs, persons and DOIs are WUR's; the contract, the data model and the /ws/api
+    surface are Elsevier's product. Recorded here as a relationship, deliberately without a stored
+    contract: no Pure spec is saved under this institution's slug. The public Pure web services are
+    not exposed — https://research.wur.nl/ws/api redirects to /error/ (HTTP 404) and
+    https://research.wur.nl/ws/oai?verb=Identify returns HTTP 500.
+  description: >-
+    Institutional research portal and CRIS for WUR publications, projects, datasets and researcher
+    profiles, running on Elsevier Pure. Listed as a tenant surface because it is a genuine WUR
+    institutional programmable surface, but the API contract behind it belongs to Elsevier and is
+    scored against Elsevier, not against WUR. WUR's own machine-readable route into the same
+    scholarly record is the library OAI-PMH endpoint listed above.
+  humanURL: https://research.wur.nl/
+  tags:
+  - Research Data
+  - Research Information
+  - Repository
+  tags_raw:
+  - Research Data
+  - Research Information
+  - Repository
+  properties:
+  - type: Website
+    url: https://research.wur.nl/
 common:
+  - type: Website
+    url: https://www.wur.nl/
+  - type: DeveloperPortal
+    url: https://euw-apim-fism-001-p.developer.azure-api.net/
+  - type: APIReference
+    url: https://documenter.getpostman.com/view/3284162/TVeqd7aa
+  - type: TermsOfService
+    url: https://euw-apim-fism-001-p.developer.azure-api.net/terms-of-use
+  - type: PrivacyPolicy
+    url: https://www.wur.nl/en/about-wur/organisation-profile/privacy-cookie-statement-wur
+  - type: OpenData
+    url: https://opengeodata.wmr.wur.nl/
+  - type: ResearchRepository
+    url: https://research.wur.nl/
+  - type: LibraryCatalog
+    url: https://www.wur.nl/en/library
+  - type: IdentityFederation
+    url: https://metadata.surfconext.nl/idps-metadata.xml
+  - type: GitHub
+    url: https://github.com/WUR-AI
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/wageningen-university/
+  - type: Conformance
+    url: conformance/wageningen-university-research-conformance.yml
   - type: AgenticAccess
     url: agentic-access/wageningen-university-research-agentic-access.yml
   - type: VulnerabilityDisclosure
@@ -226,14 +422,6 @@ common:
     url: security/wageningen-university-research-domain-security.yml
   - type: Authentication
     url: authentication/wageningen-university-research-authentication.yml
-  - type: Website
-    url: https://www.wur.nl/
-  - type: GitHub
-    url: https://github.com/WUR-AI
-  - type: LinkedIn
-    url: https://www.linkedin.com/school/wageningen-university/
-  - type: DeveloperPortal
-    url: https://euw-apim-fism-001-p.developer.azure-api.net/
   - type: Plans
     url: plans/wageningen-university-research-plans-pricing.yml
   - type: RateLimits
