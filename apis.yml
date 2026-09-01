@@ -59,7 +59,7 @@ tags:
   - Research
   - Research Data
   - Agriculture
-  - Agri-Food
+  - Agrifood
   - Geospatial
   - Library
   - Open Data
@@ -149,7 +149,7 @@ apis:
   humanURL: https://euw-apim-fism-001-p.developer.azure-api.net/apis
   tags:
   - Food
-  - Agri-Food
+  - Agrifood
   - Scientific Data
   tags_raw:
   - Food
@@ -303,8 +303,7 @@ apis:
   description: The Retrieve API from AgroDataCube v2, operated by Wageningen Environmental Research — 18 operations over fields, crops, soils, meteo data and code lists.
   humanURL: https://agrodatacube.wur.nl/
   baseURL: https://agrodatacube.wur.nl/api/v2/rest
-  tags:
-  - Retrieve
+  tags: []
   tags_raw:
   - Retrieve
   properties:
