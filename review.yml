@@ -3,7 +3,7 @@ name: Wageningen University & Research
 description: Wageningen University & Research public developer/API footprint review for APIs.json cataloging.
 url: https://raw.githubusercontent.com/api-evangelist/wageningen-university-research/refs/heads/main/review.yml
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 reviews:
   - date: '2026-06-03'
     rating: 3
@@ -52,3 +52,71 @@ reviews:
       - url: https://github.com/WUR-AI
         status: 200
         note: WUR Artificial Intelligence Group GitHub org (one of several WUR groups).
+  - date: '2026-08-30'
+    rating: 4
+    summary: >-
+      University-pipeline re-profile. Operator attribution settled first: no vendor contract is
+      stored under this slug, and the Elsevier Pure Research Portal is now recorded as a tenant
+      relationship rather than as WUR engineering. Two corrections and one find. Correction one is
+      ours: refine-openapis had welded all five AgroDataCube per-tag splits onto the wrong parent —
+      they wore the title "AgroDataCube API v1 (legacy)" and base /api/v1/rest while their
+      operations come from AgroDataCube v2 — and the v1 base is retired, so every one of the 34
+      operations was documented against a host that answers HTTP 404. All five specs, and the ten
+      derived collections, were re-based on v2. Correction two: /sources/{resource_name} does not
+      exist on v2 (404) and /ahn is tagged Altitude there, so both were dropped from the v2 contract;
+      both survive in openapi/_original/. The find is a complete, keyless, protocol-conformant
+      OAI-PMH 2.0 endpoint at library.wur.nl/oai over "Wageningen University & Research
+      Publications" — WUR's own host, WUR's own WURLIB6 software, four metadata formats and eight
+      sets — which had never been catalogued. Two SAML IdP entities in SURFconext/eduGAIN and a WMR
+      OGC WMS/WFS GeoServer were also confirmed. There is still no central developer portal and no
+      registrar API: api.wur.nl and ssc.wur.nl resolve but time out from the public internet.
+    endpoints:
+      - url: https://library.wur.nl/oai?verb=Identify
+        status: 200
+        note: >-
+          OAI-PMH 2.0, repositoryName "Wageningen University & Research Publications",
+          repositoryIdentifier library.wur.nl, earliestDatestamp 2013-01-02. Institution-operated.
+      - url: https://library.wur.nl/oai?verb=ListMetadataFormats
+        status: 200
+        note: oai_dc, mods, nl_didl, oai_openaire.
+      - url: https://library.wur.nl/oai?verb=ListSets
+        status: 200
+        note: 8 sets - public, publickb, openaire, DARC, dataset, thesis, worldcat, edurep.
+      - url: https://library.wur.nl/oai?verb=ListRecords&metadataPrefix=oai_openaire&set=openaire
+        status: 200
+        note: DataCite kernel-4 payload; ORCID on 235 of 1,439 creators on the first page.
+      - url: https://agrodatacube.wur.nl/api/v2/rest/fields
+        status: 403
+        note: 'v2 live and token-gated: {"status": "No token supplied, see .../register.jsp"}.'
+      - url: https://agrodatacube.wur.nl/api/v1/rest/fields
+        status: 404
+        note: v1 base retired (Tomcat 404). The five specs in this repo had been based on it.
+      - url: https://agrodatacube.wur.nl/api/v2/rest/sources
+        status: 200
+        note: Only keyless v2 route; returns a pointer to the v2.1 Postman documentation.
+      - url: https://agrodatacube.wur.nl/api/v2/rest/sources/fields
+        status: 404
+        note: /sources/{resource_name} does not exist on v2; dropped from the re-based contract.
+      - url: https://euw-apim-fism-001-p.management.azure-api.net/subscriptions/000/resourceGroups/000/providers/Microsoft.ApiManagement/service/euw-apim-fism-001-p/apis?api-version=2022-04-01-preview
+        status: 401
+        note: WFBR APIM catalogue is auth-gated; no contract readable, so none stored.
+      - url: https://opengeodata.wmr.wur.nl/
+        status: 200
+        note: Wageningen Marine Research OpenGeoData GeoServer; WMS/WFS live, global capabilities disabled.
+      - url: https://metadata.surfconext.nl/idps-metadata.xml
+        status: 200
+        note: >-
+          Two WUR SAML IdP entities - http://login.wur.nl/adfs/services/trust and
+          https://sts.windows.net/27d137e5-761f-4dc1-af88-d26430abb18f/ - scopes wur.nl, wurnet.nl.
+      - url: https://api.wur.nl/
+        status: 0
+        note: Resolves to 137.224.9.86 but :80 and :443 time out from the public internet.
+      - url: https://ssc.wur.nl/
+        status: 0
+        note: Resolves to 137.224.205.63 but times out; student service centre is not public.
+      - url: https://osiris.wur.nl/
+        status: 403
+        note: Osiris student administration; no roster or course API exposed.
+      - url: https://www.wur.nl/.well-known/security.txt
+        status: 200
+        note: RFC 9116, Contact mailto:cert@wur.nl, Expires 2026-12-31.

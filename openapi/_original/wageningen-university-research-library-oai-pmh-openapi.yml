@@ -1,0 +1,164 @@
+# x-archived-from: wageningen-university-research-library-oai-pmh-openapi.yml
+# x-archived-on: 2026-09-16
+openapi: 3.2.0
+info:
+  title: WUR Library OAI-PMH API
+  version: '2.0'
+  summary: The OAI-PMH 2.0 harvesting interface over Wageningen University & Research Publications.
+  description: >-
+    OAI-PMH 2.0 interface to the "Wageningen University & Research Publications" repository, operated
+    by WUR's own library on WUR's own host (library.wur.nl, software generator WURLIB6). Every verb
+    is open — no token, no registration, no rate-limit header observed — and the repository declares
+    itself with repositoryIdentifier `library.wur.nl` and sample identifier
+    `oai:library.wur.nl:wurpubs/334118`. It is the one institution-operated, protocol-conformant
+    machine-readable surface WUR runs over its own scholarly record; the Research Portal at
+    research.wur.nl is an Elsevier Pure tenancy and is a different thing entirely.
+    This document was written from live keyless probes of the endpoint on 2026-08-30 — the verbs,
+    metadata prefixes, set specs, error codes and resumption-token shape below were all read off real
+    responses, not assumed from the OAI-PMH specification.
+  contact:
+    name: WUR Library / Facilities Service Desk
+    email: servicedesk.facilities@wur.nl
+    url: https://www.wur.nl/en/library
+  license:
+    name: CC BY-NC-SA 4.0
+    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+externalDocs:
+  description: OAI-PMH 2.0 protocol specification (Open Archives Initiative)
+  url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+servers:
+- url: https://library.wur.nl
+  description: Production. GET /oai answered HTTP 200 application/xml for every verb probed on 2026-08-30.
+x-provenance:
+  generated: '2026-08-30'
+  method: probed
+  source: >-
+    Live keyless probes of https://library.wur.nl/oai on 2026-08-30 — verb=Identify,
+    verb=ListMetadataFormats, verb=ListSets, verb=ListIdentifiers&metadataPrefix=oai_dc,
+    verb=GetRecord, plus two deliberate error probes (verb=Bogus, metadataPrefix=bogus).
+  x-operator: institution
+  operator_evidence: >-
+    library.wur.nl is under Wageningen University & Research's own registrable domain; the Identify
+    response names the repository "Wageningen University & Research Publications", gives
+    repositoryIdentifier library.wur.nl and adminEmail servicedesk.facilities@wur.nl, and the HTML
+    surface on the same host carries meta generator "WURLIB6" — WUR's own library software, not a
+    packaged vendor repository. No vendor host, title, contact or terms appear anywhere in it.
+  live_probe:
+  - url: https://library.wur.nl/oai?verb=Identify
+    status: 200
+    note: repositoryName "Wageningen University & Research Publications", earliestDatestamp 2013-01-02
+  - url: https://library.wur.nl/oai?verb=ListMetadataFormats
+    status: 200
+    note: oai_dc, mods, nl_didl, oai_openaire
+  - url: https://library.wur.nl/oai?verb=ListSets
+    status: 200
+    note: 8 sets
+  - url: https://library.wur.nl/oai?verb=ListIdentifiers&metadataPrefix=oai_dc
+    status: 200
+    note: paged, resumptionToken "200:::oai_dc::"
+  - url: https://library.wur.nl/oai?verb=Bogus
+    status: 200
+    note: OAI-PMH error envelope, code badVerb
+tags:
+- name: OAI-PMH
+  description: The six OAI-PMH 2.0 verbs, all served from the single /oai route.
+paths:
+  /oai:
+    get:
+      summary: OAI-PMH 2.0 request
+      description: >-
+        Single-route OAI-PMH endpoint. The `verb` query parameter selects the operation; the other
+        parameters are conditional on the verb, exactly as OAI-PMH 2.0 defines. Errors are returned
+        inside a 200 OAI-PMH envelope as an `<error code="...">` element rather than as an HTTP
+        status — verb=Bogus returned HTTP 200 with code `badVerb`, and an unknown metadataPrefix
+        returned HTTP 200 with code `cannotDisseminateFormat`.
+      operationId: oai_request
+      tags:
+      - OAI-PMH
+      parameters:
+      - name: verb
+        in: query
+        required: true
+        description: The OAI-PMH verb. Omitting it returns the badVerb error envelope.
+        schema:
+          type: string
+          enum:
+          - Identify
+          - ListMetadataFormats
+          - ListSets
+          - ListIdentifiers
+          - ListRecords
+          - GetRecord
+      - name: metadataPrefix
+        in: query
+        required: false
+        description: >-
+          Required for ListIdentifiers, ListRecords and GetRecord. The four values below are the
+          formats this repository actually advertises; oai_openaire is the OpenAIRE guidelines profile.
+        schema:
+          type: string
+          enum:
+          - oai_dc
+          - mods
+          - nl_didl
+          - oai_openaire
+      - name: identifier
+        in: query
+        required: false
+        description: 'Required for GetRecord. Form: oai:library.wur.nl:wurpubs/<uuid or number>.'
+        schema:
+          type: string
+          examples:
+          - oai:library.wur.nl:wurpubs/334118
+      - name: set
+        in: query
+        required: false
+        description: Optional set restriction for ListIdentifiers and ListRecords.
+        schema:
+          type: string
+          enum:
+          - public
+          - publickb
+          - openaire
+          - DARC
+          - dataset
+          - thesis
+          - worldcat
+          - edurep
+      - name: from
+        in: query
+        required: false
+        description: Lower bound on datestamp. Granularity is YYYY-MM-DD (declared in Identify).
+        schema:
+          type: string
+          format: date
+      - name: until
+        in: query
+        required: false
+        description: Upper bound on datestamp. Granularity is YYYY-MM-DD.
+        schema:
+          type: string
+          format: date
+      - name: resumptionToken
+        in: query
+        required: false
+        description: >-
+          Continuation token for a paged list. Exclusive of every other parameter but verb.
+          Observed page size 200; observed token form "200:::oai_dc::".
+        schema:
+          type: string
+      responses:
+        '200':
+          description: >-
+            An OAI-PMH 2.0 response envelope. Carries the requested payload element, or an
+            <error code="..."> element for badVerb, badArgument, cannotDisseminateFormat,
+            idDoesNotExist, noRecordsMatch, noSetHierarchy or badResumptionToken.
+          content:
+            application/xml:
+              schema:
+                type: object
+                description: OAI-PMH root element in namespace http://www.openarchives.org/OAI/2.0/.
+              examples:
+                identify:
+                  summary: verb=Identify (probed 2026-08-30)
+                  externalValue: ../examples/wageningen-university-research-oai-identify-example.xml

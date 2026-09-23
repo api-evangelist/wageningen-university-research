@@ -1,16 +1,17 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: AgroDataCube API v1 (legacy) Altitude Retrieve API
-  version: '1.0'
-  description: 'Faithful OpenAPI 3.0 conversion of the public AgroDataCube Postman collection. AgroDataCube provides open and derived data for agri-food applications over the Netherlands, returning GeoJSON for vector resources and GeoTIFF for raster (_image) resources. Access requires a free token supplied via the ''token'' HTTP header. Source: Wageningen Environmental Research (WUR).'
-  license:
-    name: CC BY-NC-SA 4.0
-    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+  title: Wageningen University Research Retrieve API
   contact:
     name: AgroDataCube
     url: https://agrodatacube.wur.nl/
+  license:
+    name: CC BY-NC-SA 4.0
+    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+  version: '1.0'
+  description: 'Operations tagged Retrieve across 2 of this provider''s published API definitions: wageningen-university-research-agrodatacube-v1.yaml, wageningen-university-research-agrodatacube-v2.yaml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://agrodatacube.wur.nl/api/v1/rest
+- url: https://agrodatacube.wur.nl/api/v2/rest
 security:
 - tokenHeader: []
 tags:
@@ -18,7 +19,7 @@ tags:
 paths:
   /ahn:
     get:
-      summary: Retrieve zonal statistics for altitude using the supplied geometry. If no epsg is provided epsg = 28992 (RD) is assumed.
+      summary: Retrieve zonal statistics for altitude using the supplied geometry.
       description: Retrieve zonal statistics for altitude using the supplied geometry. If no epsg is provided epsg = 28992 (RD) is assumed. Currently only EPSGs 28992 (Dutch RD) and 4326 (WGS 84) are supported.
       operationId: get_ahn
       responses:
@@ -48,9 +49,11 @@ paths:
         schema:
           type: integer
         example: '4326'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /codes/cropcodes:
     get:
-      summary: Retrieve a list of all possible cropcodes.
+      summary: Retrieve a list of all possible cropcodes
       description: Retrieve a list of all possible cropcodes.
       operationId: get_codes_cropcodes
       responses:
@@ -81,9 +84,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /codes/cropcodes/{cropcode}:
     get:
-      summary: Retrieve details for a specific cropcode.
+      summary: Retrieve details for a specific cropcode
       description: Retrieve details for a specific cropcode.
       operationId: get_codes_cropcodes_cropcode
       responses:
@@ -120,9 +125,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /codes/soilcodes:
     get:
-      summary: Retrieve a list of all possible soilcodes.
+      summary: Retrieve a list of all possible soilcodes
       description: Retrieve a list of all possible soilcodes.
       operationId: get_codes_soilcodes
       responses:
@@ -153,9 +160,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /codes/soilcodes/{soilcode}:
     get:
-      summary: Retrieve details for a specific soilcode.
+      summary: Retrieve details for a specific soilcode
       description: Retrieve details for a specific soilcode.
       operationId: get_codes_soilcodes_soilcode
       responses:
@@ -192,9 +201,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /fields:
     get:
-      summary: Retrieve the geometry and soil information of the intersections of the supplied geometry and the fields. If no epsg is p
+      summary: Retrieve the geometry and soil information of the intersections of the supplied…
       description: Retrieve the geometry and soil information of the intersections of the supplied geometry and the fields. If no epsg is provided EPSG:28992 (Dutch RD) is assumed. Currently only EPSGs 28992 and 4326 (WGS 84) are supported.
       operationId: get_fields
       responses:
@@ -257,9 +268,11 @@ paths:
         schema:
           type: integer
         example: '4326'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /fields/{fieldid}:
     get:
-      summary: Retrieve the geometry and crop information for a specific crop field.
+      summary: Retrieve the geometry and crop information for a specific crop field
       description: Retrieve the geometry and crop information for a specific crop field.
       operationId: get_fields_fieldid
       responses:
@@ -302,9 +315,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /fields/{fieldid}/ahn:
     get:
-      summary: Retrieve altitude zonal statistics (in cm) based on AHN for a specific field.
+      summary: Retrieve altitude zonal statistics (in cm) based on AHN for a specific field
       description: Retrieve altitude zonal statistics (in cm) based on AHN for a specific field.
       operationId: get_fields_fieldid_ahn
       responses:
@@ -341,9 +356,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /fields/{fieldid}/meteostations:
     get:
-      summary: Retrieve a list of the nearest meteostations to a specific field, ranked by distance.
+      summary: Retrieve a list of the nearest meteostations to a specific field, ranked by…
       description: Retrieve a list of the nearest meteostations to a specific field, ranked by distance.
       operationId: get_fields_fieldid_meteostations
       responses:
@@ -386,9 +403,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /fields/{fieldid}/ndvi:
     get:
-      summary: Retrieve the available NDVI (Normalized Difference Vegetation Index) values for a specific field and time period.
+      summary: Retrieve the available NDVI (Normalized Difference Vegetation Index) values for…
       description: Retrieve the available NDVI (Normalized Difference Vegetation Index) values for a specific field and time period.
       operationId: get_fields_fieldid_ndvi
       responses:
@@ -431,10 +450,12 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /fields/{fieldid}/soilparams:
     get:
-      summary: Retrieve the spatial intersections of a field with the soil physical parameters geometries (for more detailed informatio
-      description: 'Retrieve the spatial intersections of a field with the soil physical parameters geometries (for more detailed information see http://content.alterra.wur.nl/Webdocs/PDFFiles/Alterrarapporten/AlterraRapport2387.pdf). The soilparamid returned can be used to '
+      summary: Retrieve the spatial intersections of a field with the soil physical parameters…
+      description: Retrieve the spatial intersections of a field with the soil physical parameters geometries (for more detailed information see http://content.alterra.wur.nl/Webdocs/PDFFiles/Alterrarapporten/AlterraRapport2387.pdf). The soilparamid returned can be used to
       operationId: get_fields_fieldid_soilparams
       responses:
         '200':
@@ -476,9 +497,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /fields/{fieldid}/soiltypes:
     get:
-      summary: 'Retrieve the spatial intersections of the field with the geometries of the soilmap 1 : 50.000. The soilid returned is th'
+      summary: Retrieve the spatial intersections of the field with the geometries of the…
       description: 'Retrieve the spatial intersections of the field with the geometries of the soilmap 1 : 50.000. The soilid returned is the objectid in the shapefile as provided by PDOK.'
       operationId: get_fields_fieldid_soiltypes
       responses:
@@ -521,10 +544,12 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /meteodata:
     get:
-      summary: Retrieve weather data from one of the meteostations for a specified time period.  Dates can be entered as yyyymmdd, yyyy
-      description: Retrieve weather data from one of the meteostations for a specified time period.  Dates can be entered as yyyymmdd, yyyymm, or yyyy.
+      summary: Retrieve weather data from one of the meteostations for a specified time period.
+      description: Retrieve weather data from one of the meteostations for a specified time period. Dates can be entered as yyyymmdd, yyyymm, or yyyy.
       operationId: get_meteodata
       responses:
         '200':
@@ -575,10 +600,12 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /meteodata/{stationid}/{date}:
     get:
-      summary: Retrieve weather data from one of the meteostations and for a specific date.  The date can be entered as yyyymmdd, yyyym
-      description: Retrieve weather data from one of the meteostations and for a specific date.  The date can be entered as yyyymmdd, yyyymm, or yyyy.
+      summary: Retrieve weather data from one of the meteostations and for a specific date.
+      description: Retrieve weather data from one of the meteostations and for a specific date. The date can be entered as yyyymmdd, yyyymm, or yyyy.
       operationId: get_meteodata_stationid_date
       responses:
         '200':
@@ -620,10 +647,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /codes/category:
     get:
       summary: Retrieve detailed crop category information
-      description: Retrieve detailed crop category information
       operationId: get_codes_category
       responses:
         '200':
@@ -659,10 +687,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v2/rest
   /fields/{fieldid}/bouwland_markers:
     get:
-      summary: Retrieve arable land markers for a specific crop  field
-      description: Retrieve arable land markers for a specific crop  field
+      summary: Retrieve arable land markers for a specific crop field
       operationId: get_fields_fieldid_bouwland_markers
       responses:
         '200':
@@ -698,10 +727,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v2/rest
   /fields/{fieldid}/crophistory:
     get:
       summary: Retrieve the crop history for a parcel, based on its geometry
-      description: Retrieve the crop history for a parcel, based on its geometry
       operationId: get_fields_fieldid_crophistory
       responses:
         '200':
@@ -737,10 +767,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v2/rest
   /fields/{fieldid}/croprotationindex:
     get:
       summary: Retrieve the crop rotation index for a field
-      description: Retrieve the crop rotation index for a field
       operationId: get_fields_fieldid_croprotationindex
       responses:
         '200':
@@ -776,10 +807,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v2/rest
   /fields/{fieldid}/grasland_markers:
     get:
       summary: Retrieve graslandmarkers for a specific crop field
-      description: Retrieve graslandmarkers for a specific crop field
       operationId: get_fields_fieldid_grasland_markers
       responses:
         '200':
@@ -814,23 +846,10 @@ paths:
         required: false
         schema:
           type: integer
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v2/rest
 components:
   schemas:
-    FeatureCollection:
-      type: object
-      description: GeoJSON FeatureCollection returned by vector resources.
-      required:
-      - type
-      - features
-      properties:
-        type:
-          type: string
-          enum:
-          - FeatureCollection
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/Feature'
     Feature:
       type: object
       description: GeoJSON Feature with a geometry and a free-form properties map whose keys depend on the queried resource.
@@ -848,6 +867,21 @@ components:
         properties:
           type: object
           additionalProperties: true
+    FeatureCollection:
+      type: object
+      description: GeoJSON FeatureCollection returned by vector resources.
+      required:
+      - type
+      - features
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
     Geometry:
       type: object
       description: GeoJSON geometry (Point, Polygon, MultiPolygon, etc.).
@@ -873,3 +907,6 @@ components:
       in: header
       name: token
       description: Access token obtained via https://agrodatacube.wur.nl/api/register.jsp
+x-refined-from:
+- wageningen-university-research-agrodatacube-v1.yaml
+- wageningen-university-research-agrodatacube-v2.yaml

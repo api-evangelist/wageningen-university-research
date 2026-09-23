@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: AgroDataCube API v1 (legacy) Altitude Raster API
-  version: '1.0'
+  title: AgroDataCube API v2 Raster API
+  version: '2.1'
   description: 'Faithful OpenAPI 3.0 conversion of the public AgroDataCube Postman collection. AgroDataCube provides open and derived data for agri-food applications over the Netherlands, returning GeoJSON for vector resources and GeoTIFF for raster (_image) resources. Access requires a free token supplied via the ''token'' HTTP header. Source: Wageningen Environmental Research (WUR).'
   license:
     name: CC BY-NC-SA 4.0
@@ -10,7 +10,7 @@ info:
     name: AgroDataCube
     url: https://agrodatacube.wur.nl/
 servers:
-- url: https://agrodatacube.wur.nl/api/v1/rest
+- url: https://agrodatacube.wur.nl/api/v2/rest
 security:
 - tokenHeader: []
 tags:
@@ -19,7 +19,6 @@ paths:
   /ahn_image:
     get:
       summary: Raster data geotiff for AHN (ahn_image)
-      description: Raster data geotiff for AHN (ahn_image)
       operationId: get_ahn_image
       responses:
         '200':
@@ -58,7 +57,6 @@ paths:
   /fields/{fieldid}/ahn_image:
     get:
       summary: Raster data geotiff for AHN (ahn_image)
-      description: Raster data geotiff for AHN (ahn_image)
       operationId: get_fields_fieldid_ahn_image
       responses:
         '200':
@@ -91,7 +89,6 @@ paths:
   /fields/{fieldid}/ndvi_image:
     get:
       summary: Raster data geotiff for NDVI (ndvi_image)
-      description: Raster data geotiff for NDVI (ndvi_image)
       operationId: get_fields_fieldid_ndvi_image
       responses:
         '200':
@@ -130,7 +127,6 @@ paths:
   /ndvi_image:
     get:
       summary: Raster data geotiff for NDVI (ndvi_image)
-      description: Raster data geotiff for NDVI (ndvi_image)
       operationId: get_ndvi_image
       responses:
         '200':
@@ -174,21 +170,6 @@ paths:
         example: '4326'
 components:
   schemas:
-    FeatureCollection:
-      type: object
-      description: GeoJSON FeatureCollection returned by vector resources.
-      required:
-      - type
-      - features
-      properties:
-        type:
-          type: string
-          enum:
-          - FeatureCollection
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/Feature'
     Feature:
       type: object
       description: GeoJSON Feature with a geometry and a free-form properties map whose keys depend on the queried resource.
@@ -206,6 +187,21 @@ components:
         properties:
           type: object
           additionalProperties: true
+    FeatureCollection:
+      type: object
+      description: GeoJSON FeatureCollection returned by vector resources.
+      required:
+      - type
+      - features
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
     Geometry:
       type: object
       description: GeoJSON geometry (Point, Polygon, MultiPolygon, etc.).

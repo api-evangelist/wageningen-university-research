@@ -970,7 +970,7 @@
   "variable": [
     {
       "type": "string",
-      "value": "https://agrodatacube.wur.nl/api/v1/rest",
+      "value": "https://agrodatacube.wur.nl/api/v2/rest",
       "key": "baseUrl"
     }
   ],
@@ -993,7 +993,7 @@
   },
   "info": {
     "_postman_id": "a0c71937-61b8-4bcf-8497-d13bc28d16e9",
-    "name": "AgroDataCube API v1 (legacy) Altitude Raster API",
+    "name": "AgroDataCube API v2 Raster API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Faithful OpenAPI 3.0 conversion of the public AgroDataCube Postman collection. AgroDataCube provides open and derived data for agri-food applications over the Netherlands, returning GeoJSON for vector resources and GeoTIFF for raster (_image) resources. Access requires a free token supplied via the 'token' HTTP header. Source: Wageningen Environmental Research (WUR).\n\nContact Support:\n Name: AgroDataCube",

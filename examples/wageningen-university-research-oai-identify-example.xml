@@ -1,0 +1,28 @@
+<!--
+  generated: 2026-08-30
+  method: probed
+  source: https://library.wur.nl/oai?verb=Identify
+  status: HTTP 200 (application/xml), captured verbatim; only this provenance comment was added.
+  x-operator: institution (library.wur.nl is under wur.nl, WUR-operated, software generator WURLIB6)
+-->
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oai="http://www.openarchives.org/OAI/2.0/" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"><responseDate>2026-08-30T22:33:12+02:00</responseDate><request verb="Identify">https://library.wur.nl/php/oai.php</request><Identify>
+		<repositoryName>Wageningen University &amp; Research Publications</repositoryName>
+		<baseURL>http://library.wur.nl/oai</baseURL>
+		<protocolVersion>2.0</protocolVersion>
+		
+		<adminEmail>servicedesk.facilities@wur.nl</adminEmail>
+		
+		<earliestDatestamp>2013-01-02</earliestDatestamp>
+		<deletedRecord>transient</deletedRecord>
+		<granularity>YYYY-MM-DD</granularity>
+		<description>
+			<oai-identifier xmlns="http://www.openarchives.org/OAI/2.0/oai-identifier" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai-identifier     http://www.openarchives.org/OAI/2.0/oai-identifier.xsd">
+                <scheme>oai</scheme>
+                <repositoryIdentifier>library.wur.nl</repositoryIdentifier>
+                <delimiter>:</delimiter>
+                <sampleIdentifier>oai:library.wur.nl:wurpubs/334118</sampleIdentifier>
+            </oai-identifier>
+        </description>
+       
+	</Identify></OAI-PMH>
+

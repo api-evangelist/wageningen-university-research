@@ -1,0 +1,92 @@
+<!--
+  generated: 2026-08-30
+  method: probed
+  source: https://library.wur.nl/oai?verb=ListSets
+  status: HTTP 200 (application/xml), captured verbatim; only this provenance comment was added.
+  x-operator: institution (library.wur.nl is under wur.nl, WUR-operated, software generator WURLIB6)
+-->
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oai="http://www.openarchives.org/OAI/2.0/" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"><responseDate>2026-08-30T22:33:12+02:00</responseDate><request verb="ListSets">https://library.wur.nl/php/oai.php</request><ListSets>
+		<set>
+			<setSpec>public</setSpec>
+			<setName>Publicly available objects</setName>
+			<setDescription>
+				<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/       http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+					<dc:description>This set contains metadata describing 
+             objects that are publicly available
+                    </dc:description>
+				</oai_dc:dc>
+			</setDescription>
+		</set>
+		<set>
+			<setSpec>publickb</setSpec>
+			<setName>Publicly available objects delivered from our repository</setName>
+			<setDescription>
+				<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/       http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+					<dc:description>This set contains metadata describing 
+             objects that are publicly available, that are stored in our repository, and that are delivered from our repository
+          </dc:description>
+				</oai_dc:dc>
+			</setDescription>
+		</set>
+		<set>
+			<setSpec>openaire</setSpec>
+			<setName>Publicly available objects</setName>
+			<setDescription>
+				<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/       http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+					<dc:description>This set contains metadata describing 
+						objects that are publicly available
+					</dc:description>
+				</oai_dc:dc>
+			</setDescription>
+		</set>
+		<set>
+			<setSpec>DARC</setSpec>
+			<setName>Distributed Africana Repositories Community</setName>
+			<setDescription>
+				<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/       http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+					<dc:description>This set contains metadata describing 
+             objects for the Distributed Africana Repositories Community. DARC is an initiative of the African Studies Centre (ASC) in Leiden to make Africanist research material and information accessible through a community portal on the Internet.
+                    </dc:description>
+				</oai_dc:dc>
+			</setDescription>
+		</set>
+		<set>
+			<setSpec>dataset</setSpec>
+			<setName>datasets</setName>
+			<setDescription>
+				<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/       http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+					<dc:description>This set contains metadata describing datasets that Wageningen University &amp; Research stores in appropriate repositories</dc:description>
+				</oai_dc:dc>
+			</setDescription>
+		</set>
+		<set>
+			<setSpec>thesis</setSpec>
+			<setName>Publicly available dissertations Wageningen University &amp; Research</setName>
+			<setDescription>
+				<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/       http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+					<dc:description>This set contains metadata describing 
+                        publicly available dissertations from Wageningen University &amp; Research
+                    </dc:description>
+				</oai_dc:dc>
+			</setDescription>
+		</set>
+		<set>
+			<setSpec>worldcat</setSpec>
+			<setName>set for Worldcat</setName>
+			<setDescription>
+				<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/       http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+					<dc:description>This set contains metadata records of digital objects from Research@WUR, that have not been entered in WorldCat manually.</dc:description>
+				</oai_dc:dc>
+			</setDescription>
+		</set>
+		<set>
+			<setSpec>edurep</setSpec>
+			<setName>set for harvesting to Edurep</setName>
+			<setDescription>
+				<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/       http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+					<dc:description>This set contains metadata describing publications that are relevant to Edurep</dc:description>
+				</oai_dc:dc>
+			</setDescription>
+		</set>
+	</ListSets></OAI-PMH>
+

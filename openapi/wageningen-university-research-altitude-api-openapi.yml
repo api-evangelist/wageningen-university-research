@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: AgroDataCube API v1 (legacy) Altitude API
-  version: '1.0'
+  title: AgroDataCube API v2 Altitude API
+  version: '2.1'
   description: 'Faithful OpenAPI 3.0 conversion of the public AgroDataCube Postman collection. AgroDataCube provides open and derived data for agri-food applications over the Netherlands, returning GeoJSON for vector resources and GeoTIFF for raster (_image) resources. Access requires a free token supplied via the ''token'' HTTP header. Source: Wageningen Environmental Research (WUR).'
   license:
     name: CC BY-NC-SA 4.0
@@ -10,7 +10,7 @@ info:
     name: AgroDataCube
     url: https://agrodatacube.wur.nl/
 servers:
-- url: https://agrodatacube.wur.nl/api/v1/rest
+- url: https://agrodatacube.wur.nl/api/v2/rest
 security:
 - tokenHeader: []
 tags:
@@ -18,7 +18,7 @@ tags:
 paths:
   /ahn:
     get:
-      summary: Altitude zonal statistics for supplied geometry.
+      summary: Altitude zonal statistics for supplied geometry
       description: Altitude zonal statistics for supplied geometry.
       operationId: get_ahn
       responses:
@@ -51,21 +51,6 @@ paths:
         example: '28992'
 components:
   schemas:
-    FeatureCollection:
-      type: object
-      description: GeoJSON FeatureCollection returned by vector resources.
-      required:
-      - type
-      - features
-      properties:
-        type:
-          type: string
-          enum:
-          - FeatureCollection
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/Feature'
     Feature:
       type: object
       description: GeoJSON Feature with a geometry and a free-form properties map whose keys depend on the queried resource.
@@ -83,6 +68,21 @@ components:
         properties:
           type: object
           additionalProperties: true
+    FeatureCollection:
+      type: object
+      description: GeoJSON FeatureCollection returned by vector resources.
+      required:
+      - type
+      - features
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
     Geometry:
       type: object
       description: GeoJSON geometry (Point, Polygon, MultiPolygon, etc.).

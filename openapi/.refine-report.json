@@ -1,22 +1,37 @@
 {
   "provider": "wageningen-university-research",
   "sources": [
-    "wageningen-university-research-altitude-api-openapi.yml",
-    "wageningen-university-research-kpi-api-openapi.yml",
-    "wageningen-university-research-raster-api-openapi.yml",
-    "wageningen-university-research-retrieve-api-openapi.yml",
-    "wageningen-university-research-return-api-openapi.yml"
+    "_original/wageningen-university-research-agrodatacube-v1.yaml",
+    "_original/wageningen-university-research-agrodatacube-v2.yaml",
+    "_original/wageningen-university-research-library-oai-pmh-openapi.yml"
   ],
   "outputs": [
+    "wageningen-university-research-retrieve-api-openapi.yml",
+    "wageningen-university-research-return-api-openapi.yml",
     "wageningen-university-research-altitude-api-openapi.yml",
     "wageningen-university-research-kpi-api-openapi.yml",
     "wageningen-university-research-raster-api-openapi.yml",
-    "wageningen-university-research-retrieve-api-openapi.yml",
-    "wageningen-university-research-return-api-openapi.yml"
+    "wageningen-university-research-oai-pmh-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "wageningen-university-research-agrodatacube-v1.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "wageningen-university-research-agrodatacube-v2.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "tag 'Retrieve' spans 2 source specs (wageningen-university-research-agrodatacube-v1.yaml, wageningen-university-research-agrodatacube-v2.yaml): per-path servers applied",
+    "tag 'Return' spans 2 source specs (wageningen-university-research-agrodatacube-v1.yaml, wageningen-university-research-agrodatacube-v2.yaml): per-path servers applied",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "_original/wageningen-university-research-library-oai-pmh.yaml: archived document superseded by a larger archived document",
+    "wageningen-university-research-altitude-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wageningen-university-research-kpi-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wageningen-university-research-oai-pmh-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wageningen-university-research-raster-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wageningen-university-research-retrieve-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wageningen-university-research-return-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

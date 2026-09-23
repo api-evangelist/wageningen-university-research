@@ -1,16 +1,17 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: AgroDataCube API v1 (legacy) Altitude Return API
-  version: '1.0'
-  description: 'Faithful OpenAPI 3.0 conversion of the public AgroDataCube Postman collection. AgroDataCube provides open and derived data for agri-food applications over the Netherlands, returning GeoJSON for vector resources and GeoTIFF for raster (_image) resources. Access requires a free token supplied via the ''token'' HTTP header. Source: Wageningen Environmental Research (WUR).'
-  license:
-    name: CC BY-NC-SA 4.0
-    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+  title: Wageningen University Research Return API
   contact:
     name: AgroDataCube
     url: https://agrodatacube.wur.nl/
+  license:
+    name: CC BY-NC-SA 4.0
+    url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+  version: '1.0'
+  description: 'Operations tagged Return across 2 of this provider''s published API definitions: wageningen-university-research-agrodatacube-v1.yaml, wageningen-university-research-agrodatacube-v2.yaml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://agrodatacube.wur.nl/api/v1/rest
+- url: https://agrodatacube.wur.nl/api/v2/rest
 security:
 - tokenHeader: []
 tags:
@@ -18,7 +19,7 @@ tags:
 paths:
   /meteostations:
     get:
-      summary: Return a list of all meteostations for which data is available.
+      summary: Return a list of all meteostations for which data is available
       description: Return a list of all meteostations for which data is available.
       operationId: get_meteostations
       responses:
@@ -55,9 +56,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /meteostations/{meteostation}:
     get:
-      summary: Return the data for the given meteostation.
+      summary: Return the data for the given meteostation
       description: Return the data for the given meteostation.
       operationId: get_meteostations_meteostation
       responses:
@@ -100,9 +103,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /regions/municipalities:
     get:
-      summary: Return all municipalities (gemeentes), based on the boundaries for 2015.
+      summary: Return all municipalities (gemeentes), based on the boundaries for 2015
       description: Return all municipalities (gemeentes), based on the boundaries for 2015.
       operationId: get_regions_municipalities
       responses:
@@ -139,9 +144,11 @@ paths:
         schema:
           type: integer
         example: '4326'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /regions/postalcodes:
     get:
-      summary: Return the dutch 6-positions postalcode areas.
+      summary: Return the dutch 6-positions postalcode areas
       description: Return the dutch 6-positions postalcode areas.
       operationId: get_regions_postalcodes
       responses:
@@ -178,9 +185,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /regions/provences:
     get:
-      summary: Return the provinces. These are the boundaries from 2015.
+      summary: Return the provinces. These are the boundaries from 2015
       description: Return the provinces. These are the boundaries from 2015.
       operationId: get_regions_provences
       responses:
@@ -217,9 +226,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /soilparams/{soilparamid}:
     get:
-      summary: Return all the information for the given soilparamid.
+      summary: Return all the information for the given soilparamid
       description: Return all the information for the given soilparamid.
       operationId: get_soilparams_soilparamid
       responses:
@@ -256,9 +267,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /soiltypes:
     get:
-      summary: Return the intersections of the supplied geometry and soilmap. If no epsg is provided epsg = 28992 (RD) is assumed. Curr
+      summary: Return the intersections of the supplied geometry and soilmap.
       description: Return the intersections of the supplied geometry and soilmap. If no epsg is provided epsg = 28992 (RD) is assumed. Currently only epsg's 28992 and 4326 (WGS 84) are supported
       operationId: get_soiltypes
       responses:
@@ -306,9 +319,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /soiltypes/{entityid}:
     get:
-      summary: Return all the information for the given soilmap entityid.
+      summary: Return all the information for the given soilmap entityid
       description: Return all the information for the given soilmap entityid.
       operationId: get_soiltypes_entityid
       responses:
@@ -351,10 +366,11 @@ paths:
         schema:
           type: integer
         example: '0'
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /sources:
     get:
       summary: Return all information about availabe data
-      description: Return all information about availabe data
       operationId: get_sources
       responses:
         '200':
@@ -371,10 +387,11 @@ paths:
       - tokenHeader: []
       tags:
       - Return
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
   /sources/{resource_name}:
     get:
       summary: Return all information for the given resource
-      description: Return all information for the given resource
       operationId: get_sources_resource_name
       responses:
         '200':
@@ -398,23 +415,10 @@ paths:
         schema:
           type: string
         description: Path parameter resource_name.
+    servers:
+    - url: https://agrodatacube.wur.nl/api/v1/rest
 components:
   schemas:
-    FeatureCollection:
-      type: object
-      description: GeoJSON FeatureCollection returned by vector resources.
-      required:
-      - type
-      - features
-      properties:
-        type:
-          type: string
-          enum:
-          - FeatureCollection
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/Feature'
     Feature:
       type: object
       description: GeoJSON Feature with a geometry and a free-form properties map whose keys depend on the queried resource.
@@ -432,6 +436,21 @@ components:
         properties:
           type: object
           additionalProperties: true
+    FeatureCollection:
+      type: object
+      description: GeoJSON FeatureCollection returned by vector resources.
+      required:
+      - type
+      - features
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
     Geometry:
       type: object
       description: GeoJSON geometry (Point, Polygon, MultiPolygon, etc.).
@@ -457,3 +476,6 @@ components:
       in: header
       name: token
       description: Access token obtained via https://agrodatacube.wur.nl/api/register.jsp
+x-refined-from:
+- wageningen-university-research-agrodatacube-v1.yaml
+- wageningen-university-research-agrodatacube-v2.yaml
