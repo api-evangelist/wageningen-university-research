@@ -850,23 +850,6 @@ paths:
     - url: https://agrodatacube.wur.nl/api/v2/rest
 components:
   schemas:
-    Feature:
-      type: object
-      description: GeoJSON Feature with a geometry and a free-form properties map whose keys depend on the queried resource.
-      required:
-      - type
-      - geometry
-      - properties
-      properties:
-        type:
-          type: string
-          enum:
-          - Feature
-        geometry:
-          $ref: '#/components/schemas/Geometry'
-        properties:
-          type: object
-          additionalProperties: true
     FeatureCollection:
       type: object
       description: GeoJSON FeatureCollection returned by vector resources.
@@ -901,6 +884,23 @@ components:
         coordinates:
           type: array
           items: {}
+    Feature:
+      type: object
+      description: GeoJSON Feature with a geometry and a free-form properties map whose keys depend on the queried resource.
+      required:
+      - type
+      - geometry
+      - properties
+      properties:
+        type:
+          type: string
+          enum:
+          - Feature
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        properties:
+          type: object
+          additionalProperties: true
   securitySchemes:
     tokenHeader:
       type: apiKey
