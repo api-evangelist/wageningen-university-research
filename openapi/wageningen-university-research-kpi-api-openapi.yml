@@ -83,6 +83,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Feature'
+    Feature:
+      type: object
+      description: GeoJSON Feature with a geometry and a free-form properties map whose keys depend on the queried resource.
+      required:
+      - type
+      - geometry
+      - properties
+      properties:
+        type:
+          type: string
+          enum:
+          - Feature
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        properties:
+          type: object
+          additionalProperties: true
     Geometry:
       type: object
       description: GeoJSON geometry (Point, Polygon, MultiPolygon, etc.).
@@ -102,23 +119,6 @@ components:
         coordinates:
           type: array
           items: {}
-    Feature:
-      type: object
-      description: GeoJSON Feature with a geometry and a free-form properties map whose keys depend on the queried resource.
-      required:
-      - type
-      - geometry
-      - properties
-      properties:
-        type:
-          type: string
-          enum:
-          - Feature
-        geometry:
-          $ref: '#/components/schemas/Geometry'
-        properties:
-          type: object
-          additionalProperties: true
   securitySchemes:
     tokenHeader:
       type: apiKey
