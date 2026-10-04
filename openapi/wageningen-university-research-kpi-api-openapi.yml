@@ -68,21 +68,6 @@ paths:
           type: string
 components:
   schemas:
-    FeatureCollection:
-      type: object
-      description: GeoJSON FeatureCollection returned by vector resources.
-      required:
-      - type
-      - features
-      properties:
-        type:
-          type: string
-          enum:
-          - FeatureCollection
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/Feature'
     Feature:
       type: object
       description: GeoJSON Feature with a geometry and a free-form properties map whose keys depend on the queried resource.
@@ -100,6 +85,21 @@ components:
         properties:
           type: object
           additionalProperties: true
+    FeatureCollection:
+      type: object
+      description: GeoJSON FeatureCollection returned by vector resources.
+      required:
+      - type
+      - features
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
     Geometry:
       type: object
       description: GeoJSON geometry (Point, Polygon, MultiPolygon, etc.).
